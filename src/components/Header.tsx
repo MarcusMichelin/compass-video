@@ -6,6 +6,7 @@ import iconHome from "../assets/icons/home.svg";
 import iconSeries from "../assets/icons/tv.svg";
 import iconFilmes from "../assets/icons/movie.svg";
 import iconCelebridades from "../assets/icons/star.svg";
+import iconPlus from "../assets/icons/plus.svg";
 
 const Header = () => {
   return (
@@ -29,7 +30,14 @@ const Header = () => {
         </div>
         <div>
           <ul className={styles.menuList}>
-            <li>
+            <li className={styles.List}>
+              <img
+                className={styles.iconHover}
+                src={iconPlus}
+                alt="Icone Plus"
+                width={24}
+                height={24}
+              />
               <a href="#" className={styles.listItemLink}>
                 Minha Lista
               </a>

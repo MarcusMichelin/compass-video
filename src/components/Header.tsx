@@ -1,13 +1,31 @@
+import { useState } from "react";
+import SearchInput from "./SearchInput";
+
+// Styles
 import styles from "../styles/Header.module.css";
+// Icones
 import logoCompassUOL from "../assets/icons/compass_uol_logo.svg";
 import perfilUser from "../assets/icons/perfil.png";
-import iconSearch from "../assets/icons/serach.svg";
 import iconHome from "../assets/icons/home.svg";
 import iconSeries from "../assets/icons/tv.svg";
 import iconFilmes from "../assets/icons/movie.svg";
 import iconCelebridades from "../assets/icons/star.svg";
+import iconPlus from "../assets/icons/plus.svg";
 
 const Header = () => {
+  const [showMyList, setShowMyList] = useState(true);
+  const [showFilter, setShowFilter] = useState(false);
+
+  const handleSearchClick = () => {
+    setShowMyList(false);
+    setShowFilter(true);
+  };
+
+  const handleShowMyList = () => {
+    setShowMyList(true);
+    setShowFilter(false);
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.logoContainer}>
@@ -19,23 +37,30 @@ const Header = () => {
         />
       </div>
       <div className={styles.searchBar}>
-        <div className={styles.contentsearchBar}>
-          <img src={iconSearch} alt="Icone Lupa" width={24} height={24} />
-          <input
-            type="text"
-            className={styles.searchInput}
-            placeholder="Buscar"
-          />
-        </div>
-        <div>
-          <ul className={styles.menuList}>
-            <li>
-              <a href="#" className={styles.listItemLink}>
-                Minha Lista
-              </a>
-            </li>
-          </ul>
-        </div>
+        <SearchInput
+          onClick={handleSearchClick}
+          setShowFilter={setShowFilter}
+          showMyList={showMyList}
+          handleShowMyList={handleShowMyList}
+        />
+        {showMyList && (
+          <div>
+            <ul className={styles.menuList}>
+              <li className={styles.List}>
+                <img
+                  className={styles.iconHover}
+                  src={iconPlus}
+                  alt="Icone Plus"
+                  width={24}
+                  height={24}
+                />
+                <a href="#" className={styles.listItemLink}>
+                  Minha Lista
+                </a>
+              </li>
+            </ul>
+          </div>
+        )}
         <div className={styles.userProfile}>
           <img
             src={perfilUser}

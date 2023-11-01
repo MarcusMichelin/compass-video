@@ -1,0 +1,89 @@
+.contentsearchBar {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.searchInput {
+  border: none;
+  height: 3rem;
+  background-color: transparent;
+  max-width: 3.35rem;
+}
+
+.searchInput:focus-visible {
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-family: Work Sans;
+  font-weight: 500;
+  word-wrap: break-word
+}
+
+.StyleShowSelect {
+  max-width: 302px;
+  border-radius: 4px;
+  background-color: #101116;
+}
+
+.StylesContentSelect {
+  padding: 0.75rem 1rem;
+  gap: 0.65rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.StylesContentSelect p {
+  color: rgba(255, 255, 255, 0.40);
+  font-size: 1rem;
+  font-weight: 400;
+  word-wrap: break-word
+}
+
+.StyleSelect {
+  max-width: 6rem;
+    height: 2.65rem;
+    background-color: transparent;
+    border-radius: 0.25rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    word-wrap: break-word;
+    padding: 0.75rem;
+}
+
+.StyleSelectIcons {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+}
+
+.contentIcons {
+  display: flex;
+  gap: 0.75rem; 
+}
+
+.StylesContentShowSelect {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.searchInputBusca {
+  color: rgba(255, 255, 255, 0.40);
+  font-size: 1rem;
+  font-weight: 400;
+  word-wrap: break-word;
+  background-color: transparent;
+  border: none;
+}
+
+.searchInputBusca:focus-visible {
+  outline: none;
+}
+
+

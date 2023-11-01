@@ -15,8 +15,7 @@ function App() {
         <Header />
         {/* ////// */}
       </div>
-      <div style={{background: 'linear-gradient(180deg, rgba(26, 29, 41, 0) 0%, rgba(26, 29, 41, 0.79) 60%, #1A1D29 100%)',}}>
-      <div className="text-stone-600 text-4x5 font-work-sans font-bold break-words">Filmes bem Conceituados</div>
+      <div style={{color: 'black', fontSize: 20, fontFamily: 'Work Sans', fontWeight: '700', wordWrap: 'break-word'}}>Filmes Mais Bem Conceituados</div>
         <Carousel media='movie' category="top_rated"  />
         <Carousel media='tv' category="top_rated"  />
         <Carousel media='movie' category="popular"  />
@@ -24,7 +23,6 @@ function App() {
         <Carousel media='movie' category="upcoming"  />
         <Carousel media='tv' category="airing_today"  />
         <Carousel media='person' category="popular"  />
-      </div>
       <div><Footer /></div>
     </>
   );

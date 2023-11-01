@@ -38,6 +38,7 @@ const Carousel = ({ category, media }: Props) => {
                     perPage: 4,
                     perMove: 1,
                     gap: "1rem",
+                    autoplay: true,
                     breakpoints: {
                         420: {
                             perPage: 2,
@@ -68,5 +69,4 @@ const Carousel = ({ category, media }: Props) => {
 };
 
 export default Carousel;
-
 

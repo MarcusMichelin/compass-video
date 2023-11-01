@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./Components/Header";
 import TopBar from "./Components/TopBar";
 import Carousel from "./Components/Carousel";
-import Footer from "./components/Footer";
+import Footer from "./Components/Footer";
 import './index.css'
 
 
@@ -13,9 +13,7 @@ function App() {
       <div>
         <TopBar />
         <Header />
-
         {/* ////// */}
-        <Footer />
       </div>
       <div style={{background: 'linear-gradient(180deg, rgba(26, 29, 41, 0) 0%, rgba(26, 29, 41, 0.79) 60%, #1A1D29 100%)',}}>
       <div className="text-stone-600 text-4x5 font-work-sans font-bold break-words">Filmes bem Conceituados</div>
@@ -27,6 +25,7 @@ function App() {
         <Carousel media='tv' category="airing_today"  />
         <Carousel media='person' category="popular"  />
       </div>
+      <div><Footer /></div>
     </>
   );
 }

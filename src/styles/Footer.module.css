@@ -63,6 +63,23 @@
 }
 
 @media (min-width: 769px) {
-  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ulStyle {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    margin: 2.25rem 0;
+  }
+
+  .richText {
+    max-width: 28.5rem;
+  }
 }
 

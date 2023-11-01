@@ -1,0 +1,20 @@
+.topBar {
+  display: flex;
+  align-items: center;
+  height: 2.75rem;
+  background-color: #292828;
+  gap: 0.85rem;
+  padding: 0 1.25rem;
+}
+
+.topBar_ball::before {
+  content: '';
+  background-image: url('../assets/icons/circulo.svg');
+  background-repeat: no-repeat;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+}
+
+
+

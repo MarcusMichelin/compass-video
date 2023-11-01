@@ -57,6 +57,10 @@
   text-decoration: none;
 }
 
+.listItemLink:hover {
+  color: #02E7F5;
+}
+
 .listItemLink::before {
   content: '';
   background-image: url('../assets/icons/plus.svg');
@@ -65,4 +69,49 @@
   height: 1.25rem;
   display: inline-block;
   padding-left: 0.5rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navigationList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.listItem {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  width: 33.33%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.listItem :hover {
+  color: #02E7F5;
+}
+
+.navLink {
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 500;
+  word-wrap: break-word;
+  text-decoration: none;
+}
+
+.centered {
+  width: 100%;
+  text-align: center;
 }

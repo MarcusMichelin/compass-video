@@ -1,0 +1,89 @@
+body {
+    font-family: 'Work Sans', sans-serif;
+    color: var(--text-high-emphasis, #F9F9F9);
+    background: #1A1D29; /* Define o fundo padrão para o corpo */
+}
+
+h1, h4 {
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 44px;
+    font-weight: 700;
+}
+
+h4 {
+    font-weight: 700;
+}
+
+.container {
+    background: #1A1D29; /* Define o fundo padrão para o container */
+}
+
+.textContainer{
+    padding-top: 200px;
+}
+
+.page1,
+.page2,
+.page3,
+.page4,
+.page5 {
+    background: center/cover no-repeat, #1A1D29;
+    background-size: 100%;
+    width: 1512px;
+    height: 800px;
+}
+
+.page1 {
+    background-image: url("../images/fiveNightsAtFreddys.png");
+}
+
+.page2 {
+    background-image: url("../images/theOtherZoey.png");
+}
+
+.page3 {
+    background-image: url("../images/loki.png");
+}
+
+.page4 {
+    background-image: url("../images/theNun2.png");
+}
+
+.page5 {
+    background-image: url("../images/theHowlingCollection.png");
+}
+
+
+.year-duration,
+.genders {
+    display: block;
+    margin-bottom: 20px; /* Adicione margem na parte inferior para separá-los verticalmente */
+}
+
+.year-duration {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.genders {
+    font-size: 12px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 30px;
+    white-space: pre-line;
+    margin-bottom: 20px;
+}
+
+.category {
+    color: #FFF;
+    font-family: Lato;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

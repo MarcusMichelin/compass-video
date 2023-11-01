@@ -35,6 +35,10 @@
   text-decoration: none;
 }
 
+.linkStyle:hover {
+  text-decoration: underline;
+}
+
 .richText {
   margin-top: 0.75rem;
   margin-bottom: 2.5rem;

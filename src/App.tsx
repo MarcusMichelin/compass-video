@@ -4,6 +4,7 @@ import TopBar from "./components/TopBar";
 import Carousel from "./components/Carousel";
 import Footer from "./components/Footer";
 import "./index.css";
+import AppRouter from "./Router/AppRouter";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <TopBar />
         <Header />
         {/* ////// */}
+        <AppRouter />
       </div>
       <div
         style={{

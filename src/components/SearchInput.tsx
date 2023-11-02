@@ -53,8 +53,9 @@ const SearchInput: React.FC<SearchInputProps> = ({
             className={styles.searchInputBusca}
             type="text"
             placeholder="Filme, série ou celebridade"
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onClick={handleInputClick}
           />
-          {/* <p>Filme, série ou celebridade</p> */}
           <div className={styles.StyleSelectIcons}>
             <select
               className={styles.StyleSelect}

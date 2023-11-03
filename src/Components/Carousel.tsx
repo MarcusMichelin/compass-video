@@ -10,6 +10,7 @@ interface Props {
 interface Movie {
   id: number;
   poster_path: string;
+  profile_path: string;
   title: string;
   release_date: string;
 }
@@ -25,7 +26,6 @@ const Carousel = ({ category, media }: Props) => {
     };
     fetchMovies();
   }, [category, media]);
-
   return (
     <div>
       <Splide
@@ -54,7 +54,9 @@ const Carousel = ({ category, media }: Props) => {
             <SplideSlide key={movie.id}>
               <a href={`/home/${movie.id}`}>
                 <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w500${
+                    movie.poster_path || movie.profile_path
+                  }`}
                   alt={movie.title}
                   style={{
                     width: "100%",

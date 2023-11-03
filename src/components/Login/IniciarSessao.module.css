@@ -1,0 +1,47 @@
+
+.container{
+  position: relative;
+}
+
+.contentBtn{
+  display: flex;
+  justify-content: center;
+}
+
+.convidado{
+  color: rgba(255, 255, 255, 0.60);
+
+font-family: Lato;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.convidado span{
+  color: #fff;
+}
+
+.titulo{
+  color: var(--text-high-emphasis, #F9F9F9);
+  font-family: Work Sans;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.texto{
+  color: #FFF;
+
+  text-align: center;
+ 
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.compassLogo img{
+  top: 30%;
+}

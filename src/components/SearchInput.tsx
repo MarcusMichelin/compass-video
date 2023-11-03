@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 // Styles
 import styles from "../styles/SearchInput.module.css";
@@ -7,12 +8,20 @@ import iconSearch from "../assets/icons/serach.svg";
 import FilterSearch from "../assets/icons/serach.svg";
 import FilterClose from "../assets/icons/close.svg";
 
-type ItemType = "Filmes" | "Séries" | "Celebridades";
+type ItemType = "movie" | "tv" | "person";
 
 interface SearchInputProps {
   onClick: () => void;
   setShowFilter: (value: boolean) => void;
   handleShowMyList: () => void;
+}
+
+interface SearchResult {
+  id: number;
+  title: string;
+  poster_path: string;
+  profile_path: string;
+  media_type: string;
 }
 
 const SearchInput: React.FC<SearchInputProps> = ({
@@ -23,26 +32,45 @@ const SearchInput: React.FC<SearchInputProps> = ({
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedFilter, setSelectedFilter] = useState<ItemType | null>();
   const [showFilter, setShowFilterState] = useState<boolean>(false);
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 
   const handleInputClick = () => {
     onClick();
     setShowFilterState(true);
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
+    if (event.target.value) {
+      const results = await searchTMDB(event.target.value, selectedFilter || null);
+      setSearchResults(results);
+    } else {
+      setSearchResults([]);
+    }
   };
 
-  const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleFilterChange = async (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = event.target.value as ItemType;
     setSelectedFilter(selectedValue);
     setShowFilterState(false);
     setShowFilter(false);
+    if (searchQuery) {
+      const results = await searchTMDB(searchQuery, selectedValue);
+      setSearchResults(results);
+    }
   };
 
   const handleCloseFilter = () => {
     setShowFilterState(false);
     handleShowMyList();
+  };
+
+  const searchTMDB = async (query: string, filter: ItemType | null) => {
+    const mediaType = filter?.toLowerCase() || "multi";
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/search/${mediaType}?api_key=8efe34f8767f6ed321c581e319415e89&query=${query}`
+    );
+    return response.data.results;
   };
 
   return (
@@ -53,7 +81,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
             className={styles.searchInputBusca}
             type="text"
             placeholder="Filme, série ou celebridade"
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={handleInputChange}
             onClick={handleInputClick}
           />
           <div className={styles.StyleSelectIcons}>
@@ -62,9 +90,9 @@ const SearchInput: React.FC<SearchInputProps> = ({
               value={selectedFilter || ""}
               onChange={handleFilterChange}
             >
-              <option value="Filmes">Filmes</option>
-              <option value="Séries">Séries</option>
-              <option value="Celebridades">Celebridades</option>
+              <option value="movie">Filmes</option>
+              <option value="tv">Séries</option>
+              <option value="person">Celebridades</option>
             </select>
             <div className={styles.contentIcons}>
               <img src={FilterSearch} alt="Icone Pesquisa" />
@@ -75,6 +103,14 @@ const SearchInput: React.FC<SearchInputProps> = ({
               />
             </div>
           </div>
+          <ul>
+            {searchResults.map((result) => (
+              <li key={result.id}>
+                <img src={`https://image.tmdb.org/t/p/w92${result.poster_path || result.profile_path}`} alt={result.title} />
+                <span>{result.title}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       ) : (
         <div className={styles.contentsearchBar}>

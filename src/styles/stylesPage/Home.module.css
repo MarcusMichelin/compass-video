@@ -1,0 +1,119 @@
+.container {
+  padding: 3.75rem 1rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  padding-bottom: 2rem;
+  gap: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.content h2 {
+  color: #F9F9F9;
+  font-size: 44px;
+  font-weight: 700;
+  word-wrap: break-word
+}
+
+.content h5 {
+  color: #F9F9F9;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  word-wrap: break-word
+}
+
+.richTextTime {
+  color: #F9F9F9;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  word-wrap: break-word
+}
+
+.richTextGenero {
+  color: #F9F9F9;
+  font-size: 12px;
+  font-weight: 400;
+  word-wrap: break-word
+}
+
+.containerButton {
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.contentButton {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.btnVerMais {
+  max-width: 194px;
+    height: 48px;
+    color: #1A1D29;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.24px;
+    word-wrap: break-word;
+    padding: 0px 24px 0px 24px;
+    border-radius: 0.25rem;
+    border: none;
+    font-family: Work Sans;
+    padding: 0 24px;
+}
+
+.btnInfo {
+  max-width: 281px;
+  height: 48px;
+  color: white;
+  font-size: 16px;
+  font-family: Work Sans;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.24px;
+  word-wrap: break-word;
+  background-color: transparent;
+  border: 1px white solid;
+  border-radius: 0.25rem;
+  padding: 0 24px;
+}
+
+.containerIcon {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+/* DESKTOP  */
+@media (min-width: 769px) {
+ .container {
+    margin-left: 80px;
+ }
+ .content {
+    max-width: 719px;
+    width: 100%;
+    height: 272px;
+ }
+
+ .containerButton {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    max-width: 719px;
+    width: 100%;
+ }
+
+ .contentButton {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+ }
+}

@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PageHome from "../pages/PageHome";
 import PageSeries from "../pages/PageSeries";
-import PageFilmes from "../pages/PageFilmes";
 import PageCelebridades from "../pages/PageCelebridades";
+import Filmes from "../pages/PageFilmes";
 
 const AppRouter = () => {
   return (
@@ -14,7 +14,7 @@ const AppRouter = () => {
         <Route path="/series" element={<PageSeries />} />
       </Routes>
       <Routes>
-        <Route path="/filmes" element={<PageFilmes />} />
+        <Route path="/home/:movieId" element={<Filmes />} />
       </Routes>
       <Routes>
         <Route path="/celebridades" element={<PageCelebridades />} />

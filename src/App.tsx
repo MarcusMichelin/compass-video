@@ -1,5 +1,4 @@
 import "./App.css";
-import Header from "./components/Header";
 import TopBar from "./components/TopBar";
 import Carousel from "./components/Carousel";
 import Footer from "./components/Footer";
@@ -9,9 +8,8 @@ import AppRouter from "./Router/AppRouter";
 function App() {
   return (
     <>
-      <div>
+      <div className="container">
         <TopBar />
-        <Header />
         {/* ////// */}
         <AppRouter />
       </div>

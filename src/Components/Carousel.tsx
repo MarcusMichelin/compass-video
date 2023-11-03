@@ -10,6 +10,7 @@ interface Props {
 interface Movie {
     id: number;
     poster_path: string;
+    profile_path: string;
     title: string;
     release_date: string;
 }
@@ -40,7 +41,7 @@ const Carousel = ({ category, media }: Props) => {
                     gap: "1rem",
                     autoplay: true,
                     breakpoints: {
-                        420: {
+                        430: {
                             perPage: 2,
                             gap: "0.5rem",
                         },
@@ -55,7 +56,7 @@ const Carousel = ({ category, media }: Props) => {
                     {movies.map((movie) => (
                         <SplideSlide key={movie.id}>
                             <img
-                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path || movie.profile_path}`}
                                 alt={movie.title}
                                 style={{ width: "100%", borderRadius: "0.5rem", marginBottom: '56px', marginTop: '16px' }}
 
@@ -69,4 +70,3 @@ const Carousel = ({ category, media }: Props) => {
 };
 
 export default Carousel;
-

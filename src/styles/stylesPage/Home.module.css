@@ -29,6 +29,15 @@
   word-wrap: break-word
 }
 
+.tituloCarousel {
+  color: #F9F9F9;
+  font-size: 20px;
+  font-family: Work Sans;
+  font-weight: 700;
+  word-wrap: break-word;
+  margin-top: 2rem;
+}
+
 .richTextTime {
   color: #F9F9F9;
   font-size: 16px;

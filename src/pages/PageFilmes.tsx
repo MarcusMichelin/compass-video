@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import ImgBackground from "../components/backgoundImagem/ImgBackground";
 import { MovieDetails } from "../Typescript/MovieDetails";
 import { useParams } from "react-router-dom";
-import Carousel from "../components/Carousel";
+import CarouselSimilar from "../components/Carousel/CarouselSimilar.tsx";
 
 interface MovieDetailsProps {
   movieId: number;
@@ -15,7 +15,7 @@ interface MovieDetailsProps {
 
 const Filmes: React.FC<MovieDetailsProps> = () => {
   const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
-  const { movieId } = useParams();
+  const { movieId } = useParams<{ movieId: string }>();
 
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, {
@@ -36,7 +36,7 @@ const Filmes: React.FC<MovieDetailsProps> = () => {
       .catch((error) => {
         console.error("Erro:", error);
       });
-  }, []);
+  }, [movieId]);
 
   if (!movieDetails) {
     return <div>Carregando...</div>;
@@ -44,38 +44,37 @@ const Filmes: React.FC<MovieDetailsProps> = () => {
 
   return (
     <>
-      <ImgBackground movieId={movieId} />
+      <ImgBackground movieId={Number(movieId)} />
       <Header />
       <div className={styles.container}>
-        <section className={styles.section}>
-          <div className={styles.content}>
-            <h2>{movieDetails.original_title}</h2>
-            <p className={styles.richTextTime}>{movieDetails.release_date}</p>
-            <p className={styles.richTextGenero}>
-              {movieDetails.genres &&
-                movieDetails.genres.map((genre, index) => (
-                  <span key={index}>
-                    {genre.name}
-                    {index !== movieDetails.genres.length - 1 ? ", " : ""}
-                  </span>
-                ))}
-            </p>
-            <h5>{movieDetails.overview}</h5>
+        <div className={styles.content}>
+          <h2>{movieDetails.original_title}</h2>
+          <p className={styles.richTextTime}>{movieDetails.release_date}</p>
+          <p className={styles.richTextGenero}>
+            {movieDetails.genres &&
+              movieDetails.genres.map((genre, index) => (
+                <span key={index}>
+                  {genre.name}
+                  {index !== movieDetails.genres.length - 1 ? ", " : ""}
+                </span>
+              ))}
+          </p>
+          <h5>{movieDetails.overview}</h5>
+        </div>
+        <div className={styles.containerButton}>
+          <div className={styles.contentButton}>
+            <button className={styles.btnVerMais}>VER AGORA</button>
+            <button className={styles.btnInfo}>Mais Informações</button>
           </div>
-          <div className={styles.containerButton}>
-            <div className={styles.contentButton}>
-              <button className={styles.btnVerMais}>VER AGORA</button>
-              <button className={styles.btnInfo}>Mais Informações</button>
-            </div>
-            <div className={styles.containerIcon}>
-              <img src={IconAdd} alt="Icone Adicionar" />
-              <img src={IconFavorito} alt="Icone Favorito" />
-            </div>
+          <div className={styles.containerIcon}>
+            <img src={IconAdd} alt="Icone Adicionar" />
+            <img src={IconFavorito} alt="Icone Favorito" />
           </div>
-        </section>
-      </div>
-      <div>
-        <Carousel media="movie" category="top_rated" />
+          <div>
+            <div className={styles.tituloCarousel}>Similares</div>
+            <CarouselSimilar media="movie" currentMediaId={Number(movieId)} />
+          </div>
+        </div>
       </div>
     </>
   );

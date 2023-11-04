@@ -1,21 +1,32 @@
 import "./App.css";
-
-import Footer from "./components/Footer";
+import Header from "./components/Header";
+import IniciarSessao from "./components/Login/IniciarSessao";
 import TopBar from "./components/TopBar";
+import Carousel from "./components/Carousel/Carousel";
+import Footer from "./components/Footer";
+import "./index.css";
 import AppRouter from "./Router/AppRouter";
-import styles from "./styles/stylesPage/backgroundInicio.module.css";
 
 function App() {
   return (
     <>
-      <div className="container">
+      <div>
+        {/* <IniciarSessao /> */}
+
         <TopBar />
-        <div className={styles["gradient-overlay"]}></div>
+        {/* <Header /> */}
         {/* ////// */}
         <AppRouter />
-        <div>
-          <Footer />
-        </div>
+      </div>
+      {/* <Carousel media="movie" category="top_rated" />
+      
+      <Carousel media="movie" category="popular" />
+      <Carousel media="tv" category="popular" />
+      <Carousel media="movie" category="upcoming" />
+      <Carousel media="tv" category="airing_today" />
+       */}
+      <div>
+        <Footer />
       </div>
     </>
   );

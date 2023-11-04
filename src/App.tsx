@@ -1,35 +1,41 @@
 import "./App.css";
+import Header from "./components/Header";
+import IniciarSessao from "./components/Login/IniciarSessao";
 import TopBar from "./components/TopBar";
 import Carousel from "./components/Carousel";
 import Footer from "./components/Footer";
+import "./index.css";
 import AppRouter from "./Router/AppRouter";
-// import IniciarSessao from "./components/Login/IniciarSessao";
 
 function App() {
   return (
     <>
-      <div className="container">
+      <div>
+        <IniciarSessao />
+
         <TopBar />
+        <Header />
         {/* ////// */}
         <AppRouter />
       </div>
       <div
         style={{
-          background:
-            "linear-gradient(180deg, rgba(26, 29, 41, 0) 0%, rgba(26, 29, 41, 0.79) 60%, #1A1D29 100%)",
+          color: "black",
+          fontSize: 20,
+          fontFamily: "Work Sans",
+          fontWeight: "700",
+          wordWrap: "break-word",
         }}
       >
-        <div className="text-stone-600 text-4x5 font-work-sans font-bold break-words">
-          Filmes bem Conceituados
-        </div>
-        <Carousel media="movie" category="top_rated" />
-        <Carousel media="tv" category="top_rated" />
-        <Carousel media="movie" category="popular" />
-        <Carousel media="tv" category="popular" />
-        <Carousel media="movie" category="upcoming" />
-        <Carousel media="tv" category="airing_today" />
-        <Carousel media="person" category="popular" />
+        Filmes Mais Bem Conceituados
       </div>
+      {/* <Carousel media="movie" category="top_rated" />
+      <Carousel media="tv" category="top_rated" />
+      <Carousel media="movie" category="popular" />
+      <Carousel media="tv" category="popular" />
+      <Carousel media="movie" category="upcoming" />
+      <Carousel media="tv" category="airing_today" />
+      <Carousel media="person" category="popular" /> */}
       <div>
         <Footer />
       </div>

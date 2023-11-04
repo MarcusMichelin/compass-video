@@ -1,25 +1,26 @@
-import Header from "../components/Header";
 import styles from "../styles/stylesPage/Home.module.css";
 import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
-import ImgBackgroundFilme from "../components/backgoundImagem/ImgBackgroundFilmes";
-import Carousel from "../components/Carousel";
+import Header from "../components/Header";
+import ImgBackgroundSerie from "../components/backgoundImagem/ImgBackgroundSerie";
 
-const Filmes = () => {
+const Serie = () => {
   return (
     <>
-      <ImgBackgroundFilme />
+      <ImgBackgroundSerie />
       <Header />
       <div className={styles.container}>
         <section className={styles.section}>
           <div className={styles.content}>
-            <h2>The Nun II</h2>
-            <p className={styles.richTextTime}>2021 • 1 h 41 min</p>
+            <h2>LOKI</h2>
+            <p className={styles.richTextTime}>2021 • 2 Temporadas</p>
             <p className={styles.richTextGenero}>Drama, Sci-Fi & Fantasy</p>
             <h5>
-              In 1956 France, a priest is violently murdered, and Sister Irene
-              begins to investigate. She once again comes face-to-face with a
-              powerful evil.
+              After stealing the Tesseract during the events of “Avengers:
+              Endgame,” an alternate version of Loki is brought to the
+              mysterious Time Variance Authority, a bureaucratic organization
+              that exists outside of time and space and monitors the timeline.
+              They give Loki a choice...
             </h5>
           </div>
           <div className={styles.containerButton}>
@@ -33,12 +34,9 @@ const Filmes = () => {
             </div>
           </div>
         </section>
-        <div>
-          <Carousel media="movie" category="top_rated" />
-        </div>
       </div>
     </>
   );
 };
 
-export default Filmes;
+export default Serie;

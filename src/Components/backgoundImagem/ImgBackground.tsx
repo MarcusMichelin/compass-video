@@ -30,7 +30,7 @@ const ImgBackground = () => {
       .catch((error) => {
         console.error("Erro:", error);
       });
-  }, []);
+  }, [movieId]);
 
   if (!movieDetails) {
     return <div>Carregando...</div>;

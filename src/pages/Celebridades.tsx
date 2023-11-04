@@ -1,25 +1,24 @@
-import Header from "../components/Header";
 import styles from "../styles/stylesPage/Home.module.css";
 import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
-import ImgBackgroundFilme from "../components/backgoundImagem/ImgBackgroundFilmes";
-import Carousel from "../components/Carousel";
+import Header from "../components/Header";
+import ImgBackgroundCelebridades from "../components/backgoundImagem/ImgBackgroundCelebridades";
 
-const Filmes = () => {
+const Celebridades = () => {
   return (
     <>
-      <ImgBackgroundFilme />
+      <ImgBackgroundCelebridades />
       <Header />
       <div className={styles.container}>
         <section className={styles.section}>
           <div className={styles.content}>
-            <h2>The Nun II</h2>
+            <h2>The Other Zoey</h2>
             <p className={styles.richTextTime}>2021 • 1 h 41 min</p>
             <p className={styles.richTextGenero}>Drama, Sci-Fi & Fantasy</p>
             <h5>
-              In 1956 France, a priest is violently murdered, and Sister Irene
-              begins to investigate. She once again comes face-to-face with a
-              powerful evil.
+              Zoey Miller, a super smart computer major uninterested in romantic
+              love, has her life turned upside down when Zack, the school’s
+              soccer star, gets amnesia and mistakes Zoey for his girlfriend.
             </h5>
           </div>
           <div className={styles.containerButton}>
@@ -33,12 +32,9 @@ const Filmes = () => {
             </div>
           </div>
         </section>
-        <div>
-          <Carousel media="movie" category="top_rated" />
-        </div>
       </div>
     </>
   );
 };
 
-export default Filmes;
+export default Celebridades;

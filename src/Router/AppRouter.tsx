@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PageHome from "../pages/PageHome";
-import PageSeries from "../pages/PageSeries";
-import PageCelebridades from "../pages/PageCelebridades";
+import PageHome from "../pages/Home";
+import PageSeries from "../pages/Series";
+import PageCelebridades from "../pages/Celebridades";
 import PageFilmes from "../pages/PageFilmes";
 import Filmes from "../pages/Filmes";
 

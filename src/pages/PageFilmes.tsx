@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import ImgBackground from "../components/backgoundImagem/ImgBackground";
 import { MovieDetails } from "../Typescript/MovieDetails";
 import { useParams } from "react-router-dom";
+import CarouselSimilar from "../components/Carousel/CarouselSimilar.tsx";
 
 interface MovieDetailsProps {
   movieId: number;
@@ -14,7 +15,7 @@ interface MovieDetailsProps {
 
 const Filmes: React.FC<MovieDetailsProps> = () => {
   const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
-  const { movieId } = useParams();
+  const { movieId } = useParams<{ movieId: string }>();
 
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, {
@@ -35,7 +36,7 @@ const Filmes: React.FC<MovieDetailsProps> = () => {
       .catch((error) => {
         console.error("Erro:", error);
       });
-  }, []);
+  }, [movieId]);
 
   if (!movieDetails) {
     return <div>Carregando...</div>;
@@ -43,7 +44,7 @@ const Filmes: React.FC<MovieDetailsProps> = () => {
 
   return (
     <>
-      <ImgBackground movieId={movieId} />
+      <ImgBackground movieId={Number(movieId)} />
       <Header />
       <div className={styles.container}>
         <div className={styles.content}>
@@ -69,8 +70,12 @@ const Filmes: React.FC<MovieDetailsProps> = () => {
             <img src={IconAdd} alt="Icone Adicionar" />
             <img src={IconFavorito} alt="Icone Favorito" />
           </div>
+          <div>
+            <div className={styles.tituloCarousel}>Similares</div>
+            <CarouselSimilar media="movie" currentMediaId={Number(movieId)} />
+          </div>
+          </div>
         </div>
-      </div>
     </>
   );
 };

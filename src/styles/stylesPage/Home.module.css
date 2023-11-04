@@ -2,6 +2,7 @@
   padding: 3.75rem 1rem 0;
   position: relative;
   z-index: 1;
+  background: linear-gradient(180deg, rgba(26, 29, 41, 0) 0%, rgba(26, 29, 41, 0.79) 60%, #1A1D29 100%);
 }
 
 .content {
@@ -24,6 +25,15 @@
   font-weight: 400;
   line-height: 30px;
   word-wrap: break-word
+}
+
+.tituloCarousel {
+  color: #F9F9F9;
+  font-size: 20px;
+  font-family: Work Sans;
+  font-weight: 700;
+  word-wrap: break-word;
+  margin-top: 2rem;
 }
 
 .richTextTime {

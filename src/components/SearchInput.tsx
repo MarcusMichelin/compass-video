@@ -8,7 +8,7 @@ import iconSearch from "../assets/icons/serach.svg";
 import FilterSearch from "../assets/icons/serach.svg";
 import FilterClose from "../assets/icons/close.svg";
 
-type ItemType = "movie" | "tv" | "person";
+type ItemType = "movie" | "tv" | "person" | 'collection';
 
 interface SearchInputProps {
   onClick: () => void;
@@ -32,7 +32,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedFilter, setSelectedFilter] = useState<ItemType | null>();
   const [showFilter, setShowFilterState] = useState<boolean>(false);
-  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [searchResult, setSearchResult] = useState<SearchResult | null>(null);
 
   const handleInputClick = () => {
     onClick();
@@ -43,9 +43,9 @@ const SearchInput: React.FC<SearchInputProps> = ({
     setSearchQuery(event.target.value);
     if (event.target.value) {
       const results = await searchTMDB(event.target.value, selectedFilter || null);
-      setSearchResults(results);
+      setSearchResult(results.length > 0 ? results[0] : null);
     } else {
-      setSearchResults([]);
+      setSearchResult(null);
     }
   };
 
@@ -56,7 +56,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
     setShowFilter(false);
     if (searchQuery) {
       const results = await searchTMDB(searchQuery, selectedValue);
-      setSearchResults(results);
+      setSearchResult(results.length > 0 ? results[0] : null);
     }
   };
 
@@ -93,6 +93,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
               <option value="movie">Filmes</option>
               <option value="tv">Séries</option>
               <option value="person">Celebridades</option>
+              <option value="collection">Coleções</option>
             </select>
             <div className={styles.contentIcons}>
               <img src={FilterSearch} alt="Icone Pesquisa" />
@@ -103,14 +104,13 @@ const SearchInput: React.FC<SearchInputProps> = ({
               />
             </div>
           </div>
-          <ul>
-            {searchResults.map((result) => (
-              <li key={result.id}>
-                <img src={`https://image.tmdb.org/t/p/w92${result.poster_path || result.profile_path}`} alt={result.title} />
-                <span>{result.title}</span>
-              </li>
-            ))}
-          </ul>
+          {searchResult && (
+            <ul>
+              <ul key={searchResult.id} >
+                <img src={`https://image.tmdb.org/t/p/w92${searchResult.poster_path || searchResult.profile_path}`} alt={searchResult.title} />
+              </ul>
+            </ul>
+          )}
         </div>
       ) : (
         <div className={styles.contentsearchBar}>

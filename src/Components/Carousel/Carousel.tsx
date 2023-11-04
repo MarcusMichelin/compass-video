@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/skyblue";
 import axios from "axios";
+import styles from "../../styles/Slider.module.css";
 
 interface Props {
   category: string;
@@ -27,12 +28,13 @@ const Carousel = ({ category, media }: Props) => {
     fetchMedias();
   }, [category, media]);
   return (
-    <div>
+    <div className={styles.containerSlider}>
       <Splide
         hasTrack={false}
         aria-label="Carrossel"
         options={{
           type: "loop",
+          pagination: false,
           perPage: 4,
           perMove: 1,
           gap: "1rem",

@@ -32,7 +32,10 @@ const Home = () => {
             <img src={IconFavorito} alt="Icone Favorito" />
           </div>
           <div className={styles.tituloCarousel}>Temporadas</div>
-          <div> <CarouselTemporadas serieId={84958} /></div> 
+          <div>
+            {" "}
+            <CarouselTemporadas serieId={84958} />
+          </div>
           {/* Alterar o número da serieId para o id da série que deseja ver as temporadas */}
         </div>
       </div>

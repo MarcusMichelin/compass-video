@@ -1,0 +1,5 @@
+.containerSlider {
+  background: linear-gradient( 359deg, rgba(26, 30, 41, 0.79) 0%, rgba(26, 29, 39, 0.98) 0%, #1a1d29 100%);
+  padding: 0 16px;
+  gap: 20px;
+}

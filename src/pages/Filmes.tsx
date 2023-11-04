@@ -33,10 +33,8 @@ const Filmes = () => {
             </div>
           </div>
         </section>
-        <div>
-          <Carousel media="movie" category="top_rated" />
-        </div>
       </div>
+      <Carousel media="movie" category="top_rated" />
     </>
   );
 };

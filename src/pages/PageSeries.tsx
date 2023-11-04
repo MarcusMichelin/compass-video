@@ -3,7 +3,7 @@ import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
 import Header from "../components/Header";
 import ImgBackground from "../components/backgoundImagem/ImgBackground";
-import Carousel from "../components/Carousel";
+import CarouselTemporadas from "../components/Carousel/CarouselSeasons";
 
 const Home = () => {
   return (
@@ -31,6 +31,9 @@ const Home = () => {
             <img src={IconAdd} alt="Icone Adicionar" />
             <img src={IconFavorito} alt="Icone Favorito" />
           </div>
+          <div className={styles.tituloCarousel}>Temporadas</div>
+          <div> <CarouselTemporadas serieId={84958} /></div> 
+          {/* Alterar o número da serieId para o id da série que deseja ver as temporadas */}
         </div>
       </div>
     </>

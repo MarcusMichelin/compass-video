@@ -3,6 +3,7 @@ import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
 import Header from "../components/Header";
 import ImgBackground from "../components/backgoundImagem/ImgBackground";
+import CarouselCredit from "../components/Carousel/CarouselCredit";
 
 const Home = () => {
   return (
@@ -30,6 +31,8 @@ const Home = () => {
             <img src={IconAdd} alt="Icone Adicionar" />
             <img src={IconFavorito} alt="Icone Favorito" />
           </div>
+          <div> <CarouselCredit personId={8891} /> </div>
+          {/* Aqui tu insere o id do ator no personID pra mostrar os filmes e séries que ele participou */}
         </div>
       </div>
     </>

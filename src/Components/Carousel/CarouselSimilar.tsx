@@ -4,33 +4,36 @@ import "@splidejs/react-splide/css/skyblue";
 import axios from "axios";
 
 interface Props {
-  category: string;
   media: string;
+  currentMediaId: number;
 }
-interface Movie {
+
+interface Media {
   id: number;
   poster_path: string;
   profile_path: string;
   title: string;
   release_date: string;
 }
-const Carousel = ({ category, media }: Props) => {
-  const [movies, setMovies] = useState<Movie[]>([]);
+
+const CarouselSimilar = ({ media, currentMediaId }: Props) => {
+  const [similarMedias, setSimilarMedias] = useState<Media[]>([]);
 
   useEffect(() => {
-    const fetchMovies = async () => {
+    const fetchSimilarMedias = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/${media}/${category}?api_key=8efe34f8767f6ed321c581e319415e89&language=en-US&page=1`,
+        `https://api.themoviedb.org/3/${media}/${currentMediaId}/similar?api_key=8efe34f8767f6ed321c581e319415e89&language=en-US&page=1`
       );
-      setMovies(response.data.results);
+      setSimilarMedias(response.data.results);
     };
-    fetchMovies();
-  }, [category, media]);
+    fetchSimilarMedias();
+  }, [media, currentMediaId]);
+
   return (
     <div>
       <Splide
         hasTrack={false}
-        aria-label="Filmes em Alta"
+        aria-label="Carrossel"
         options={{
           type: "loop",
           perPage: 4,
@@ -50,14 +53,14 @@ const Carousel = ({ category, media }: Props) => {
         }}
       >
         <SplideTrack>
-          {movies.map((movie) => (
-            <SplideSlide key={movie.id}>
-              <a href={`/home/${movie.id}`}>
+          {similarMedias.map((media) => (
+            <SplideSlide key={media.id}>
+              <a href={`/home/${media.id}`}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${
-                    movie.poster_path || movie.profile_path
+                    media.poster_path || media.profile_path
                   }`}
-                  alt={movie.title}
+                  alt={media.title}
                   style={{
                     width: "100%",
                     borderRadius: "0.5rem",
@@ -74,4 +77,4 @@ const Carousel = ({ category, media }: Props) => {
   );
 };
 
-export default Carousel;
+export default CarouselSimilar;

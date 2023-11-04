@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/skyblue";
 import axios from "axios";
+import styles from "../../styles/Slider.module.css";
 
 interface Props {
   media: string;
@@ -30,7 +31,7 @@ const CarouselSimilar = ({ media, currentMediaId }: Props) => {
   }, [media, currentMediaId]);
 
   return (
-    <div>
+    <div className={styles.containerSlider}>
       <Splide
         hasTrack={false}
         aria-label="Carrossel"

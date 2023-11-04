@@ -3,6 +3,8 @@ import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
 import Header from "../components/Header";
 import ImgBackgroundHome from "../components/backgoundImagem/ImgBackgroundHome";
+import Carousel from "../components/Carousel/Carousel";
+import CarouselCollection from "../components/Carousel/CarouselCollection";
 
 const Home = () => {
   return (
@@ -34,6 +36,14 @@ const Home = () => {
           </div>
         </section>
       </div>
+      <div className={styles.tituloCarousel}>Coleções de Halloween</div>
+      <div> <CarouselCollection searchTerm="horror" /></div>
+      <div className={styles.tituloCarousel}>Filmes Bem Conceituados</div>
+      <div> <Carousel media="movie" category="top_rated" /></div>
+      <div className={styles.tituloCarousel}>Séries Bem Conceituadas</div>
+      <div> <Carousel media="tv" category="top_rated" /> </div>
+      <div className={styles.tituloCarousel}>Atores e Atrizes Bem Conceituados</div>
+      <div> <Carousel media="person" category="popular" /></div>
     </>
   );
 };

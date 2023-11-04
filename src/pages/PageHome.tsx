@@ -4,8 +4,6 @@ import IconFavorito from "../assets/icons/favorito.svg";
 import Header from "../components/Header";
 import ImgBackgroundHome from "../components/backgoundImagem/ImgBackgroundHome";
 import Carousel from "../components/Carousel/Carousel";
-import CarouselTemporadas from "../components/Carousel/CarouselSeasons";
-import CarouselCredit from "../components/Carousel/CarouselCredit";
 import CarouselCollection from "../components/Carousel/CarouselCollection";
 
 const Home = () => {
@@ -39,12 +37,10 @@ const Home = () => {
         <div> <CarouselCollection searchTerm="halloween" /></div>
         <div className={styles.tituloCarousel}>Filmes Bem Conceituados</div>
         <div> <Carousel media="movie" category="top_rated" /></div>
-        <div className={styles.tituloCarousel}>Séries Bem Conceituados</div>
+        <div className={styles.tituloCarousel}>Séries Bem Conceituadas</div>
         <div> <Carousel media="tv" category="top_rated" /> </div>
         <div className={styles.tituloCarousel}>Atores e Atrizes Bem Conceituados</div>
         <div> <Carousel media="person" category="popular" /></div>
-        <div> <CarouselTemporadas serieId={84958} /></div>
-        <div> <CarouselCredit personId={8891} /> </div>
       </div>
     </>
   );

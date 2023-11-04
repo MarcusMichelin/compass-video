@@ -34,6 +34,7 @@ const Filmes = () => {
           </div>
         </section>
       </div>
+      <div className={styles.tituloCarousel}>Filmes Bem Conceituados</div>
       <Carousel media="movie" category="top_rated" />
     </>
   );

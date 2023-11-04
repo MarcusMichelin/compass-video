@@ -2,13 +2,12 @@ import styles from "../styles/stylesPage/Home.module.css";
 import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
 import Header from "../components/Header";
-import ImgBackground from "../components/backgoundImagem/ImgBackground";
-import Carousel from "../components/Carousel";
+import ImgBackgroundSerie from "../components/backgoundImagem/ImgBackgroundSerie";
 
-const Home = () => {
+const Serie = () => {
   return (
     <>
-      <ImgBackground />
+      <ImgBackgroundSerie />
       <Header />
       <div className={styles.container}>
         <div className={styles.content}>
@@ -37,4 +36,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Serie;

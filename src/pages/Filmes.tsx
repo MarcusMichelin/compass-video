@@ -1,13 +1,13 @@
+import Header from "../components/Header";
 import styles from "../styles/stylesPage/Home.module.css";
 import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
-import Header from "../components/Header";
-import ImgBackgroundCelebridades from "../components/backgoundImagem/ImgBackgroundCelebridades";
+import ImgBackgroundFilme from "../components/backgoundImagem/ImgBackgroundFilmes";
 
-const Celebridades = () => {
+const Filmes = () => {
   return (
     <>
-      <ImgBackgroundCelebridades />
+      <ImgBackgroundFilme />
       <Header />
       <div className={styles.container}>
         <div className={styles.content}>
@@ -36,4 +36,4 @@ const Celebridades = () => {
   );
 };
 
-export default Celebridades;
+export default Filmes;

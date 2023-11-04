@@ -16,14 +16,14 @@
 }
 
 .content h2 {
-  color: #F9F9F9;
+  color: #f9f9f9;
   font-size: 44px;
   font-weight: 700;
   word-wrap: break-word;
 }
 
 .content h5 {
-  color: #F9F9F9;
+  color: #f9f9f9;
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
@@ -34,27 +34,29 @@
 }
 
 .tituloCarousel {
-  color: #F9F9F9;
+  color: #f9f9f9;
   font-size: 20px;
   font-family: Work Sans;
   font-weight: 700;
   word-wrap: break-word;
-  margin-top: 2rem;
+  background: #1a1d29 100%;
+  padding: 16px;
+  margin: -1px;
 }
 
 .richTextTime {
-  color: #F9F9F9;
+  color: #f9f9f9;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 
 .richTextGenero {
-  color: #F9F9F9;
+  color: #f9f9f9;
   font-size: 12px;
   font-weight: 400;
-  word-wrap: break-word
+  word-wrap: break-word;
 }
 
 .containerButton {
@@ -72,18 +74,18 @@
 
 .btnVerMais {
   max-width: 194px;
-    height: 48px;
-    color: #1A1D29;
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2.24px;
-    word-wrap: break-word;
-    padding: 0px 24px 0px 24px;
-    border-radius: 0.25rem;
-    border: none;
-    font-family: Work Sans;
-    padding: 0 24px;
+  height: 48px;
+  color: #1a1d29;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.24px;
+  word-wrap: break-word;
+  padding: 0px 24px 0px 24px;
+  border-radius: 0.25rem;
+  border: none;
+  font-family: Work Sans;
+  padding: 0 24px;
 }
 
 .btnInfo {
@@ -108,28 +110,97 @@
   gap: 24px;
 }
 
+.episodes {
+  display: flex;
+  width: 398px;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: #1a1d29 100%;
+}
+
+.episodeCard {
+  display: flex;
+  width: 193px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.episodeCover {
+  display: flex;
+  width: 193px;
+  height: 128px;
+  justify-content: center;
+  align-items: center;
+}
+
+.episodeInformation {
+  display: flex;
+  padding: 24px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.episodeCard img {
+  width: 193px;
+  height: 128px;
+  flex-shrink: 0;
+}
+
+.episodeCard:hover {
+  background: rgba(255, 255, 255, 0.20);
+}
+
+.episodeCard h3 {
+  color: var(--text-high-emphasis, #F9F9F9);
+  font-family: Work Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  align-self: stretch;
+}
+
+.episodeCard p {
+  color: var(--text-medium-emphasis, #C8C9CB);
+  font-family: Work Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+
 /* DESKTOP  */
 @media (min-width: 769px) {
- .container {
+  .container {
     margin-left: 80px;
- }
- .content {
+  }
+  .content {
     max-width: 719px;
     width: 100%;
     height: 272px;
- }
+  }
 
- .containerButton {
+  .containerButton {
     flex-direction: row;
     display: flex;
     align-items: center;
     max-width: 719px;
     width: 100%;
- }
+  }
 
- .contentButton {
+  .contentButton {
     flex-direction: row;
     display: flex;
     align-items: center;
- }
+  }
 }
+

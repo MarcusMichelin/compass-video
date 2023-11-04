@@ -47,35 +47,35 @@ const Filmes: React.FC<MovieDetailsProps> = () => {
       <ImgBackground movieId={Number(movieId)} />
       <Header />
       <div className={styles.container}>
-        <div className={styles.content}>
-          <h2>{movieDetails.original_title}</h2>
-          <p className={styles.richTextTime}>{movieDetails.release_date}</p>
-          <p className={styles.richTextGenero}>
-            {movieDetails.genres &&
-              movieDetails.genres.map((genre, index) => (
-                <span key={index}>
-                  {genre.name}
-                  {index !== movieDetails.genres.length - 1 ? ", " : ""}
-                </span>
-              ))}
-          </p>
-          <h5>{movieDetails.overview}</h5>
-        </div>
-        <div className={styles.containerButton}>
-          <div className={styles.contentButton}>
-            <button className={styles.btnVerMais}>VER AGORA</button>
-            <button className={styles.btnInfo}>Mais Informações</button>
+        <section className={styles.section}>
+          <div className={styles.content}>
+            <h2>{movieDetails.original_title}</h2>
+            <p className={styles.richTextTime}>{movieDetails.release_date}</p>
+            <p className={styles.richTextGenero}>
+              {movieDetails.genres &&
+                movieDetails.genres.map((genre, index) => (
+                  <span key={index}>
+                    {genre.name}
+                    {index !== movieDetails.genres.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+            </p>
+            <h5>{movieDetails.overview}</h5>
           </div>
-          <div className={styles.containerIcon}>
-            <img src={IconAdd} alt="Icone Adicionar" />
-            <img src={IconFavorito} alt="Icone Favorito" />
+          <div className={styles.containerButton}>
+            <div className={styles.contentButton}>
+              <button className={styles.btnVerMais}>VER AGORA</button>
+              <button className={styles.btnInfo}>Mais Informações</button>
+            </div>
+            <div className={styles.containerIcon}>
+              <img src={IconAdd} alt="Icone Adicionar" />
+              <img src={IconFavorito} alt="Icone Favorito" />
+            </div>
           </div>
-        </div>
+        </section>
       </div>
-      <div>
-        <div className={styles.tituloCarousel}>Similares</div>
-        <CarouselSimilar media="movie" currentMediaId={Number(movieId)} />
-      </div>
+      <p className={styles.tituloCarousel}>Similares</p>
+      <CarouselSimilar media="movie" currentMediaId={Number(movieId)} />
     </>
   );
 };

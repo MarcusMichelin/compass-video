@@ -70,11 +70,11 @@ const Filmes: React.FC<MovieDetailsProps> = () => {
             <img src={IconAdd} alt="Icone Adicionar" />
             <img src={IconFavorito} alt="Icone Favorito" />
           </div>
-          <div>
-            <div className={styles.tituloCarousel}>Similares</div>
-            <CarouselSimilar media="movie" currentMediaId={Number(movieId)} />
-          </div>
         </div>
+      </div>
+      <div>
+        <div className={styles.tituloCarousel}>Similares</div>
+        <CarouselSimilar media="movie" currentMediaId={Number(movieId)} />
       </div>
     </>
   );

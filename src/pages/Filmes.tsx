@@ -3,7 +3,7 @@ import styles from "../styles/stylesPage/Home.module.css";
 import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
 import ImgBackgroundFilme from "../components/backgoundImagem/ImgBackgroundFilmes";
-import Carousel from "../components/Carousel";
+import Carousel from "../components/Carousel/Carousel";
 
 const Filmes = () => {
   return (

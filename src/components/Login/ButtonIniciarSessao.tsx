@@ -1,12 +1,12 @@
 import styles from './ButtonIniciarSessao.module.css'
 
-function ButtonIniciarSessao(){
+function ButtonIniciarSessao({onClick}){
 
     return(
 
         <div>
 
-            <button className={styles.botao}>INICIAR SESSÃO COM TMDB</button>
+            <button onClick={onClick} className={styles.botao}>INICIAR SESSÃO COM TMDB</button>
             
         </div>
 

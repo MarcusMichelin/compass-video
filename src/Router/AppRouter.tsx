@@ -4,6 +4,7 @@ import PageSeries from "../pages/Series";
 import PageCelebridades from "../pages/Celebridades";
 import PageFilmes from "../pages/PageFilmes";
 import Filmes from "../pages/Filmes";
+import MinhaLista from "../pages/MinhaLista/MinhaLista";
 
 const AppRouter = () => {
   return (
@@ -25,6 +26,9 @@ const AppRouter = () => {
       </Routes>
       <Routes>
         <Route path="/celebridades" element={<PageCelebridades />} />
+      </Routes>
+      <Routes>
+        <Route path="/minha_lista" element={<MinhaLista />} />
       </Routes>
     </BrowserRouter>
   );

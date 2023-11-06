@@ -36,14 +36,30 @@ const Home = () => {
           </div>
         </section>
       </div>
-      <div className={styles.tituloCarousel}>Coleções de Halloween</div>
-      <div> <CarouselCollection searchTerm="horror" /></div>
-      <div className={styles.tituloCarousel}>Filmes Bem Conceituados</div>
-      <div> <Carousel media="movie" category="top_rated" /></div>
-      <div className={styles.tituloCarousel}>Séries Bem Conceituadas</div>
-      <div> <Carousel media="tv" category="top_rated" /> </div>
-      <div className={styles.tituloCarousel}>Atores e Atrizes Bem Conceituados</div>
-      <div> <Carousel media="person" category="popular" /></div>
+      <div className={styles.containerCarosuel}>
+        <div className={styles.tituloCarouselFirst}>Coleções de Halloween</div>
+        <div>
+          {" "}
+          <CarouselCollection searchTerm="horror" />
+        </div>
+        <div className={styles.tituloCarousel}>Filmes Bem Conceituados</div>
+        <div>
+          {" "}
+          <Carousel media="movie" category="top_rated" />
+        </div>
+        <div className={styles.tituloCarousel}>Séries Bem Conceituadas</div>
+        <div>
+          {" "}
+          <Carousel media="tv" category="top_rated" />{" "}
+        </div>
+        <div className={styles.tituloCarousel}>
+          Atores e Atrizes Bem Conceituados
+        </div>
+        <div>
+          {" "}
+          <Carousel media="person" category="popular" />
+        </div>
+      </div>
     </>
   );
 };

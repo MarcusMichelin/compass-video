@@ -21,7 +21,7 @@ const Carousel = ({ category, media }: Props) => {
   useEffect(() => {
     const fetchMedias = async () => {
       const response = await axios.get(
-        `https://api.themoviedb.org/3/${media}/${category}?api_key=8efe34f8767f6ed321c581e319415e89&language=en-US&page=1`
+        `https://api.themoviedb.org/3/${media}/${category}?api_key=8efe34f8767f6ed321c581e319415e89&language=en-US&page=1`,
       );
       setMedias(response.data.results);
     };
@@ -45,7 +45,7 @@ const Carousel = ({ category, media }: Props) => {
             },
             1512: {
               perPage: 6,
-              gap: "1rem",
+              gap: "1.25rem",
             },
           },
         }}

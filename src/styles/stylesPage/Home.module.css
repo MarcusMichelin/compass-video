@@ -33,15 +33,30 @@
   height: 212px;
 }
 
+.containerCarosuel {
+  padding-left: 80px;
+  background: #1a1d29;
+}
+
+.tituloCarouselFirst {
+  color: #f9f9f9;
+  font-size: 20px;
+  font-weight: 700;
+  word-wrap: break-word;
+  background: #1a1d29;
+  padding: 16px;
+  z-index: 1;
+  position: relative;
+  background: transparent;
+}
+
 .tituloCarousel {
   color: #f9f9f9;
   font-size: 20px;
-  font-family: Work Sans;
   font-weight: 700;
   word-wrap: break-word;
-  background: #1a1d29 100%;
+  background: #1a1d29;
   padding: 16px;
-  margin: -1px;
 }
 
 .richTextTime {
@@ -201,6 +216,7 @@
     flex-direction: row;
     display: flex;
     align-items: center;
+    width: initial;
   }
 }
 

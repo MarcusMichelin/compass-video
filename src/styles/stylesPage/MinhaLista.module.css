@@ -32,3 +32,9 @@
   word-wrap: break-word;
   padding-bottom: 16px;
 }
+
+@media (min-width: 769px) {
+  .container .content, .contentFilmes, .contentSeries  {
+    padding-left: 80px;
+}
+}

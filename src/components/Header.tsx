@@ -82,7 +82,7 @@ const Header = () => {
                   width={24}
                   height={24}
                 />
-                <a className={styles.navLink} href="/">
+                <a className={styles.navLink} href="/home/">
                   Início
                 </a>
               </li>
@@ -94,7 +94,7 @@ const Header = () => {
                   width={24}
                   height={24}
                 />
-                <a className={styles.navLink} href="/series">
+                <a className={styles.navLink} href="/series/">
                   Série
                 </a>
               </li>
@@ -106,7 +106,7 @@ const Header = () => {
                   width={24}
                   height={24}
                 />
-                <a className={styles.navLink} href="/filmes">
+                <a className={styles.navLink} href="/home/filmes">
                   Filmes
                 </a>
               </li>

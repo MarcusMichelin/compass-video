@@ -11,12 +11,12 @@ function App() {
   return (
     <>
       <div>
-        {/* <IniciarSessao /> */}
+         <IniciarSessao /> 
 
-        <TopBar />
+      {/*  <TopBar /> */}
         {/* <Header /> */}
         {/* ////// */}
-        <AppRouter />
+       {/* <AppRouter /> /*}
       </div>
       {/* <Carousel media="movie" category="top_rated" />
       
@@ -25,8 +25,8 @@ function App() {
       <Carousel media="movie" category="upcoming" />
       <Carousel media="tv" category="airing_today" />
        */}
-      <div>
-        <Footer />
+     {/* <div> */} 
+       { /*<Footer /> */} 
       </div>
     </>
   );

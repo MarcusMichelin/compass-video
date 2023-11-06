@@ -1,0 +1,35 @@
+/* Estiliza o modal */
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+/* Estiliza o player de vídeo */
+.video-player {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: rotate(90deg);
+}
+
+@media (min-width: 768px) {
+    /* Estiliza o player de vídeo em telas maiores que 768px */
+    .video-player {
+        transform: none;
+    }
+}
+
+@media (max-width: 430px) {
+    /* Estiliza o player de vídeo em telas menores que 430px */
+    .video-player {
+        transform: rotate(0deg);
+    }
+}

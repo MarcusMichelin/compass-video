@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "../styles/stylesPage/Home.module.css";
 import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
@@ -5,8 +6,21 @@ import Header from "../components/Header";
 import ImgBackgroundHome from "../components/backgoundImagem/ImgBackgroundHome";
 import Carousel from "../components/Carousel/Carousel";
 import CarouselCollection from "../components/Carousel/CarouselCollection";
+import ModalPlayer from "../components/ModalPlayer";
 
 const Home = () => {
+  const [videoKey, setVideoKey] = useState("");
+
+  const handleVerAgoraClick = async () => {
+    const response = await fetch(
+      "https://api.themoviedb.org/3/movie/507089/videos?api_key=8efe34f8767f6ed321c581e319415e89",
+    );
+    const data = await response.json();
+    if (data.results.length > 0) {
+      setVideoKey(data.results[0].key);
+    }
+  };
+
   return (
     <>
       <ImgBackgroundHome />
@@ -26,7 +40,13 @@ const Home = () => {
           </div>
           <div className={styles.containerButton}>
             <div className={styles.contentButton}>
-              <button className={styles.btnVerMais}>VER AGORA</button>
+              <button
+                className={styles.btnVerMais}
+                onClick={handleVerAgoraClick}
+              >
+                VER AGORA
+              </button>
+              {/* 507089 */}
               <button className={styles.btnInfo}>Mais Informações</button>
             </div>
             <div className={styles.containerIcon}>
@@ -36,29 +56,28 @@ const Home = () => {
           </div>
         </section>
       </div>
-      <div className={styles.containerCarosuel}>
-        <div className={styles.tituloCarouselFirst}>Coleções de Halloween</div>
-        <div>
-          {" "}
-          <CarouselCollection searchTerm="horror" />
-        </div>
-        <div className={styles.tituloCarousel}>Filmes Bem Conceituados</div>
-        <div>
-          {" "}
-          <Carousel media="movie" category="top_rated" />
-        </div>
-        <div className={styles.tituloCarousel}>Séries Bem Conceituadas</div>
-        <div>
-          {" "}
-          <Carousel media="tv" category="top_rated" />{" "}
-        </div>
-        <div className={styles.tituloCarousel}>
-          Atores e Atrizes Bem Conceituados
-        </div>
-        <div>
-          {" "}
-          <Carousel media="person" category="popular" />
-        </div>
+      {videoKey && <ModalPlayer videoKey={videoKey} />}
+      <div className={styles.tituloCarousel}>Coleções de Halloween</div>
+      <div>
+        {" "}
+        <CarouselCollection searchTerm="horror" />
+      </div>
+      <div className={styles.tituloCarousel}>Filmes Bem Conceituados</div>
+      <div>
+        {" "}
+        <Carousel media="movie" category="top_rated" />
+      </div>
+      <div className={styles.tituloCarousel}>Séries Bem Conceituadas</div>
+      <div>
+        {" "}
+        <Carousel media="tv" category="top_rated" />{" "}
+      </div>
+      <div className={styles.tituloCarousel}>
+        Atores e Atrizes Bem Conceituados
+      </div>
+      <div>
+        {" "}
+        <Carousel media="person" category="popular" />
       </div>
     </>
   );

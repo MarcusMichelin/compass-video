@@ -34,7 +34,7 @@ const Carousel = ({ category, media }: Props) => {
         aria-label="Carrossel"
         options={{
           type: "loop",
-          perPage: 2,
+          perPage: 4,
           perMove: 1,
           gap: "1rem",
           autoplay: true,

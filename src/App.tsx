@@ -9,7 +9,6 @@ function App() {
     <>
       <div>
         <TopBar />
-        {/* ////// */}
         <AppRouter />
       </div>
       <div>

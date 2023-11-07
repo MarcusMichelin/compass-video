@@ -48,11 +48,11 @@ function IniciarSessao() {
 
   return (
     <div className={styles.container}>
-      <img src={BackgroundLogin} alt="" height={"auto"} width={"auto"} content="align-center" />
+      <img src={BackgroundLogin} alt="" height={982} width={430} />
 
-      <Card>
+      <Card className={styles.contentCard}>
         <div className={styles.titulo}>
-          <h2>Compass Video</h2>
+          <h1>Compass Video</h1>
         </div>
 
         <div className={styles.texto}>

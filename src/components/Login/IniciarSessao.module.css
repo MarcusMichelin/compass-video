@@ -1,29 +1,28 @@
-
-.container{
+.container {
   position: relative;
 }
 
-.contentBtn{
+.contentBtn {
   display: flex;
   justify-content: center;
 }
 
-.convidado{
-  color: rgba(255, 255, 255, 0.60);
+.convidado {
+  color: rgba(255, 255, 255, 0.6);
 
-font-family: Lato;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+  font-family: Lato;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-.convidado span{
+.convidado span {
   color: #fff;
 }
 
-.titulo{
-  color: var(--text-high-emphasis, #F9F9F9);
+.titulo {
+  color: var(--text-high-emphasis, #f9f9f9);
   font-family: Work Sans;
   font-size: 34px;
   font-style: normal;
@@ -31,17 +30,17 @@ line-height: normal;
   line-height: normal;
 }
 
-.texto{
-  color: #FFF;
+.texto {
+  color: #fff;
 
   text-align: center;
- 
+
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
 
-.compassLogo img{
+.compassLogo img {
   top: 30%;
 }

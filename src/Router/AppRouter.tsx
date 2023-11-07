@@ -4,10 +4,14 @@ import PageCelebridades from "../pages/Celebridades";
 import PageFilmes from "../pages/PageFilmes";
 import Filmes from "../pages/Filmes";
 import Home from "../pages/Home";
+import IniciarSessao from "../Components/Login/IniciarSessao";
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<IniciarSessao />} />
+      </Routes>
       <Routes>
         <Route path="/home" element={<Home />} />
       </Routes>

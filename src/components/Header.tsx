@@ -54,7 +54,7 @@ const Header = () => {
                     width={24}
                     height={24}
                   />
-                  <a href="#" className={styles.listItemLink}>
+                  <a href="/minha_lista" className={styles.listItemLink}>
                     Minha Lista
                   </a>
                 </li>

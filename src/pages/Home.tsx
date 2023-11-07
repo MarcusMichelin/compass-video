@@ -13,7 +13,7 @@ const Home = () => {
 
   const handleVerAgoraClick = async () => {
     const response = await fetch(
-      "https://api.themoviedb.org/3/movie/507089/videos?api_key=8efe34f8767f6ed321c581e319415e89"
+      "https://api.themoviedb.org/3/movie/507089/videos?api_key=8efe34f8767f6ed321c581e319415e89",
     );
     const data = await response.json();
     if (data.results.length > 0) {
@@ -40,7 +40,10 @@ const Home = () => {
           </div>
           <div className={styles.containerButton}>
             <div className={styles.contentButton}>
-              <button className={styles.btnVerMais} onClick={handleVerAgoraClick}>
+              <button
+                className={styles.btnVerMais}
+                onClick={handleVerAgoraClick}
+              >
                 VER AGORA
               </button>
               {/* 507089 */}

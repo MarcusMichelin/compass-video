@@ -5,21 +5,21 @@ import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import { MovieDetails } from "../Typescript/MovieDetails";
 import { useParams } from "react-router-dom";
-import CarouselSimilar from "../components/Carousel/CarouselSimilar.tsx";
-import ImgBackgroundSeries from "../components/backgoundImagem/ImgBackgroundSerie.tsx";
+import CarouselSimilar from "../Components/Carousel/CarouselSimilar.tsx";
 import CarouselSeason from "../Components/Carousel/CarouselSeasons.tsx";
+import ImgBackgroundSeries from "../Components/BackgoundImage/Background Page Click/ImgBackgroundSeries.tsx";
 
 interface MovieDetailsProps {
   seriesId: number;
   apiKey: string;
 }
 
-const Series: React.FC<MovieDetailsProps> = () => {
+const PageSeries: React.FC<MovieDetailsProps> = () => {
   const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
-  const { seriesId } = useParams<{ seriesId: string }>();
+  const { serieId } = useParams<{ serieId: string }>();
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/tv/${seriesId}?language=en-US`, {
+    fetch(`https://api.themoviedb.org/3/tv/${serieId}?language=en-US`, {
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZWZlMzRmODc2N2Y2ZWQzMjFjNTgxZTMxOTQxNWU4OSIsInN1YiI6IjY1NDExN2RkNmNhOWEwMDBhZDcyM2EyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OLTKmbMcdBw2Q4hQDoYLglPZwqQCawWYg07IDIHbpf0",
@@ -37,7 +37,7 @@ const Series: React.FC<MovieDetailsProps> = () => {
       .catch((error) => {
         console.error("Erro:", error);
       });
-  }, [seriesId]);
+  }, [serieId]);
 
   if (!movieDetails) {
     return <div>Carregando...</div>;
@@ -45,7 +45,7 @@ const Series: React.FC<MovieDetailsProps> = () => {
 
   return (
     <>
-      <ImgBackgroundSeries seriesId={Number(seriesId)} />
+      <ImgBackgroundSeries serieId={Number(serieId)} />
       <Header />
       <div className={styles.container}>
         <section className={styles.section}>
@@ -75,11 +75,11 @@ const Series: React.FC<MovieDetailsProps> = () => {
           </div>
         </section>
       </div>
-      <p className={styles.tituloCarouselFirst}>Similares</p>
-      <CarouselSimilar media="tv" currentMediaId={Number(seriesId)} />
-      <CarouselSeason serieId={Number(seriesId)} />
+      <p className={styles.tituloCarousel}>Similares</p>
+      <CarouselSimilar media="tv" currentMediaId={Number(serieId)} />
+      <CarouselSeason serieId={Number(serieId)} />
     </>
   );
 };
 
-export default Series;
+export default PageSeries;

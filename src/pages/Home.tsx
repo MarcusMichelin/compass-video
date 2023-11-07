@@ -3,10 +3,10 @@ import styles from "../styles/stylesPage/Home.module.css";
 import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
 import Header from "../components/Header";
-import ImgBackgroundHome from "../components/backgoundImagem/ImgBackgroundHome";
-import Carousel from "../components/Carousel/Carousel";
-import CarouselCollection from "../components/Carousel/CarouselCollection";
-import ModalPlayer from "../components/ModalPlayer";
+import ImgBackgroundHome from "../Components/BackgoundImage/Background Page Click/ImgBackgroundHome";
+import Carousel from "../Components/Carousel/Carousel";
+import CarouselCollection from "../Components/Carousel/CarouselCollection";
+import ModalPlayer from "../Components/ModalPlayer";
 
 const Home = () => {
   const [videoKey, setVideoKey] = useState("");
@@ -75,7 +75,7 @@ const Home = () => {
         <Carousel media="tv" category="top_rated" />{" "}
       </div>
       <div className={styles.tituloCarousel}>
-        Atores e Atrizes Bem Conceituados
+        Celebridades Bem Conceituadas
       </div>
       <div>
         {" "}

@@ -2,7 +2,7 @@ import styles from "../styles/stylesPage/Home.module.css";
 import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
 import Header from "../components/Header";
-import ImgBackgroundHome from "../components/backgoundImagem/ImgBackgroundHome";
+import ImgBackgroundHome from "../Components/BackgoundImage/Background Page Click/ImgBackgroundHome";
 import Carousel from "../components/Carousel/Carousel";
 import CarouselCollection from "../components/Carousel/CarouselCollection";
 
@@ -33,7 +33,7 @@ const Home = () => {
             <img src={IconFavorito} alt="Icone Favorito" />
           </div>
         </div>
-        <div className={styles.tituloCarouselFirst}>Coleções de Halloween</div>
+        <div className={styles.tituloCarousel}>Coleções de Halloween</div>
         <div> <CarouselCollection searchTerm="halloween" /></div>
         <div className={styles.tituloCarousel}>Filmes Bem Conceituados</div>
         <div> <Carousel media="movie" category="top_rated" /></div>

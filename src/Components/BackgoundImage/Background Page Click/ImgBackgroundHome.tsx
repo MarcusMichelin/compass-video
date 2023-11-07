@@ -1,5 +1,5 @@
-import styles from "../../styles/stylesPage/backgroundInicio.module.css";
-import BackgroundHome from "../../assets/home.png";
+import styles from "../../../styles/stylesPage/backgroundInicio.module.css";
+import BackgroundHome from "../../../assets/home.png";
 
 const ImgBackgroundHome = () => {
   return (

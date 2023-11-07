@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../../styles/stylesPage/backgroundInicio.module.css";
+import styles from "../../../styles/stylesPage/backgroundInicio.module.css";
 import { useParams } from "react-router-dom";
 
 interface Serie {
@@ -8,7 +8,7 @@ interface Serie {
 }
 
 const ImgBackgroundSeries = () => {
-  const [movieDetails, setMovieDetails] = useState<Serie | null>(null);
+  const [serieDetails, setSerieDetails] = useState<Serie | null>(null);
   const { seriesId } = useParams();
 
   useEffect(() => {
@@ -25,14 +25,14 @@ const ImgBackgroundSeries = () => {
         return response.json();
       })
       .then((data) => {
-        setMovieDetails(data);
+        setSerieDetails(data);
       })
       .catch((error) => {
         console.error("Erro:", error);
       });
   }, [seriesId]);
 
-  if (!movieDetails) {
+  if (!serieDetails) {
     return <div>Carregando...</div>;
   }
 
@@ -41,8 +41,8 @@ const ImgBackgroundSeries = () => {
       <div className={styles.container}>
         <div className={styles["gradient-overlay"]}></div>
         <img
-          src={`https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}`}
-          alt={movieDetails.title}
+          src={`https://image.tmdb.org/t/p/w500/${serieDetails.backdrop_path}`}
+          alt={serieDetails.title}
           width={430}
           height={967}
         />

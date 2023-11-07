@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "../styles/stylesPage/Home.module.css";
 import Header from "../components/Header";
-import ImgBackground from "../components/backgoundImagem/ImgBackground";
+import ImgBackgroundSeries from "../Components/BackgoundImage/Background Page Click/ImgBackgroundSeries";
 
 interface Series {
   id: number;
@@ -27,7 +27,7 @@ const PageTemporadas = () => {
 
   return (
     <>
-      <ImgBackground />
+      <ImgBackgroundSeries />
       <Header />
       <div className={styles.container}>
         <div className={styles.content}>

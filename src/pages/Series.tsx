@@ -1,8 +1,9 @@
 import styles from "../styles/stylesPage/Home.module.css";
 import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
-import Header from "../components/Header";
-import BackgroundSeriesHeader from "../Components/backgoundImagem/BackgroundSerieHeader";
+import Header from "../Components/Header";
+import BackgroundSeriesHeader from "../Components/BackgoundImage/Background Page Header/BackgroundSeriesHeader.tsx";
+import Carousel from "../Components/Carousel/Carousel.tsx";
 
 const Serie = () => {
   return (
@@ -33,7 +34,13 @@ const Serie = () => {
               <img src={IconFavorito} alt="Icone Favorito" />
             </div>
           </div>
+
         </section>
+      </div>
+      <div className={styles.tituloCarouselFirst}>Séries Bem Conceituadas</div>
+      <div>
+        {" "}
+        <Carousel media="tv" category="top_rated" />{" "}
       </div>
     </>
   );

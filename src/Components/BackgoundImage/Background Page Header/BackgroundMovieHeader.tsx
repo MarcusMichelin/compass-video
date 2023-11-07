@@ -1,13 +1,13 @@
-import styles from "../../styles/stylesPage/backgroundInicio.module.css";
-import BackgroundFilmes from "../../assets/filmes.png";
+import styles from "../../../styles/stylesPage/backgroundInicio.module.css";
+import BackgroundMovie from "../../../assets/filmes.png";
 
-const ImgBackgroundFilme = () => {
+const BackgroundMovieHeader = () => {
   return (
     <>
       <div className={styles.container}>
         <div className={styles["gradient-overlay"]}></div>
         <img
-          src={BackgroundFilmes}
+          src={BackgroundMovie}
           alt="Imagem de fundo"
           width={430}
           height={967}
@@ -17,4 +17,4 @@ const ImgBackgroundFilme = () => {
   );
 };
 
-export default ImgBackgroundFilme;
+export default BackgroundMovieHeader;

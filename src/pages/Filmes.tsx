@@ -2,13 +2,13 @@ import Header from "../components/Header";
 import styles from "../styles/stylesPage/Home.module.css";
 import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
-import ImgBackgroundFilme from "../components/backgoundImagem/ImgBackgroundFilmes";
 import Carousel from "../components/Carousel/Carousel";
+import BackgroundMovieHeader from "../Components/BackgoundImage/Background Page Header/BackgroundMovieHeader";
 
 const Filmes = () => {
   return (
     <>
-      <ImgBackgroundFilme />
+      <BackgroundMovieHeader />
       <Header />
       <div className={styles.container}>
         <section className={styles.section}>
@@ -34,7 +34,7 @@ const Filmes = () => {
           </div>
         </section>
       </div>
-      <div className={styles.tituloCarousel}>Filmes Bem Conceituados</div>
+      <div className={styles.tituloCarouselFirst}>Filmes Bem Conceituados</div>
       <Carousel media="movie" category="top_rated" />
     </>
   );

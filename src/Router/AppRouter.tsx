@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import IniciarSessao from "../Components/Login/IniciarSessao";
 import Series from "../pages/Series";
 import Celebridades from "../pages/Celebridades";
+import PageTemporadas from "../pages/PageTemporadas";
 
 const AppRouter = () => {
   return (
@@ -18,22 +19,25 @@ const AppRouter = () => {
         <Route path="/home" element={<Home />} />
       </Routes>
       <Routes>
-        <Route path="/series" element={<Series />} />
+        <Route path="/home/movie" element={<Filmes />} />
       </Routes>
       <Routes>
-        <Route path="/filmes" element={<Filmes />} />
+        <Route path="/home/tv" element={<Series />} />
       </Routes>
       <Routes>
-        <Route path="/celebridades" element={<Celebridades />} />
+        <Route path="/home/person" element={<Celebridades />} />
       </Routes>
       <Routes>
-        <Route path="/home/:moviesId" element={<PageFilmes movieId={0} apiKey={""} />} />
+        <Route path="/home/movie/:moviesId" element={<PageFilmes movieId={0} apiKey={""} />} />
       </Routes>
       <Routes>
-        <Route path="/home/:seriesId" element={<PageSeries seriesId={0} apiKey={""} />} />
+        <Route path="/home/tv/:seriesId" element={<PageSeries serieId={0} apiKey={""}/>} />
       </Routes>
       <Routes>
-        <Route path="/home/:seriesId/season/seasonId" element={<PageSeries seasonId={0} apiKey={""} />} />
+        <Route path="/home/person/:personId" element={<PageCelebridades personId={0} apiKey={""} />} />
+      </Routes>
+      <Routes>
+        <Route path="/home/:seriesId/season/seasonId" element={<PageTemporadas seasonId={0} apiKey={""} />} />
       </Routes>
     </BrowserRouter>
   );

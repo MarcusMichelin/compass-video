@@ -1,5 +1,10 @@
 .container {
   position: relative;
+  display: flex;
+  padding: 0px 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .contentBtn {
@@ -9,8 +14,6 @@
 
 .convidado {
   color: rgba(255, 255, 255, 0.6);
-
-  font-family: Lato;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

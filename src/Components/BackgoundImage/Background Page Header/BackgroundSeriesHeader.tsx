@@ -1,5 +1,5 @@
-import styles from "../../styles/stylesPage/backgroundInicio.module.css";
-import BackgroundSeries from "../../assets/series.png";
+import styles from "../../../styles/stylesPage/backgroundInicio.module.css";
+import BackgroundSeries from "../../../assets/series.png";
 
 const BackgroundSeriesHeader = () => {
   return (

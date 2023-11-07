@@ -2,12 +2,12 @@ import styles from "../styles/stylesPage/Home.module.css";
 import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
 import Header from "../components/Header";
-import ImgBackgroundCelebridades from "../components/backgoundImagem/ImgBackgroundCelebridades";
-
+import Carousel from "../components/Carousel/Carousel";
+import BackgroundPersonHeader from "../Components/BackgoundImage/Background Page Header/BackgroundPersonHeader";
 const Celebridades = () => {
   return (
     <>
-      <ImgBackgroundCelebridades />
+      <BackgroundPersonHeader />
       <Header />
       <div className={styles.container}>
         <section className={styles.section}>
@@ -32,6 +32,13 @@ const Celebridades = () => {
             </div>
           </div>
         </section>
+      </div>
+      <div className={styles.tituloCarousel}>
+        Celebridades Bem Conceituadas
+      </div>
+      <div>
+        {" "}
+        <Carousel media="person" category="popular" />
       </div>
     </>
   );

@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
-import styles from "../../styles/stylesPage/backgroundInicio.module.css";
+import styles from "../../../styles/stylesPage/backgroundInicio.module.css";
 import { useParams } from "react-router-dom";
 
-interface Movie {
+interface Person {
   title: string | undefined;
   backdrop_path: string;
+  profile_path: string;
 }
 
-const ImgBackground = () => {
-  const [movieDetails, setMovieDetails] = useState<Movie | null>(null);
-  const { moviesId } = useParams();
+const ImgBackgroundCelebridades = () => {
+  const [personDetails, setPersonDetails] = useState<Person | null>(null);
+  const { personId } = useParams();
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${moviesId}?language=en-US`, {
+    fetch(`https://api.themoviedb.org/3/person/${personId}?language=en-US`, {
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZWZlMzRmODc2N2Y2ZWQzMjFjNTgxZTMxOTQxNWU4OSIsInN1YiI6IjY1NDExN2RkNmNhOWEwMDBhZDcyM2EyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OLTKmbMcdBw2Q4hQDoYLglPZwqQCawWYg07IDIHbpf0",
@@ -25,14 +26,14 @@ const ImgBackground = () => {
         return response.json();
       })
       .then((data) => {
-        setMovieDetails(data);
+        setPersonDetails(data);
       })
       .catch((error) => {
         console.error("Erro:", error);
       });
-  }, [moviesId]);
+  }, [personId]);
 
-  if (!movieDetails) {
+  if (!personDetails) {
     return <div>Carregando...</div>;
   }
 
@@ -41,8 +42,8 @@ const ImgBackground = () => {
       <div className={styles.container}>
         <div className={styles["gradient-overlay"]}></div>
         <img
-          src={`https://image.tmdb.org/t/p/w500/${movieDetails.backdrop_path}`}
-          alt={movieDetails.title}
+          src={`https://image.tmdb.org/t/p/w500/${personDetails.profile_path}`}
+          alt={personDetails.title}
           width={430}
           height={967}
         />
@@ -51,4 +52,4 @@ const ImgBackground = () => {
   );
 };
 
-export default ImgBackground;
+export default ImgBackgroundCelebridades;

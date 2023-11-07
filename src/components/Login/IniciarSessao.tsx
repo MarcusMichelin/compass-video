@@ -20,7 +20,7 @@ function IniciarSessao() {
       },
     );
     setRequestToken(response.data.request_token);
-    window.location.href = `https://www.themoviedb.org/authenticate/${response.data.request_token}?redirect_to=http://localhost:5174/home/`;
+    window.location.href = `https://www.themoviedb.org/authenticate/${response.data.request_token}?redirect_to=http://localhost:5176/home/`;
   };
 
   const obterSessionId = async () => {
@@ -48,7 +48,7 @@ function IniciarSessao() {
 
   return (
     <div className={styles.container}>
-      <img src={BackgroundLogin} alt="" height={982} width={1512} />
+      <img src={BackgroundLogin} alt="" height={"auto"} width={"auto"} content="align-center" />
 
       <Card>
         <div className={styles.titulo}>

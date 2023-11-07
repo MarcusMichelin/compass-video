@@ -14,6 +14,7 @@ interface MediaInfo {
   profile_path: string;
   title: string;
   release_date: string;
+  media: Props["media"];
 }
 const Carousel = ({ category, media }: Props) => {
   const [medias, setMedias] = useState<MediaInfo[]>([]);
@@ -23,7 +24,11 @@ const Carousel = ({ category, media }: Props) => {
       const response = await axios.get(
         `https://api.themoviedb.org/3/${media}/${category}?api_key=8efe34f8767f6ed321c581e319415e89&language=en-US&page=1`,
       );
-      setMedias(response.data.results);
+      const mediasWithMediaProp = response.data.results.map((mediaInfo: MediaInfo) => ({
+        ...mediaInfo,
+        media,
+      }));
+      setMedias(mediasWithMediaProp);
     };
     fetchMedias();
   }, [category, media]);
@@ -51,14 +56,14 @@ const Carousel = ({ category, media }: Props) => {
         }}
       >
         <SplideTrack>
-          {medias.map((media) => (
-            <SplideSlide key={media.id}>
-              <a href={`/home/${media.id}`}>
+          {medias.map((mediaInfo: MediaInfo) => (
+            <SplideSlide key={mediaInfo.id}>
+              <a href={`/home/${mediaInfo.media}/${mediaInfo.id}`}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${
-                    media.poster_path || media.profile_path
+                    mediaInfo.poster_path || mediaInfo.profile_path
                   }`}
-                  alt={media.title}
+                  alt={mediaInfo.title}
                   style={{
                     width: "100%",
                     borderRadius: "0.5rem",

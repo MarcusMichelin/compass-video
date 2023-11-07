@@ -3,10 +3,10 @@ import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
-import ImgBackground from "../components/backgoundImagem/ImgBackground";
 import { MovieDetails } from "../Typescript/MovieDetails";
 import { useParams } from "react-router-dom";
-import CarouselSimilar from "../components/Carousel/CarouselSimilar.tsx";
+import CarouselSimilar from "../Components/Carousel/CarouselSimilar.tsx";
+import ImgBackgroundFilmes from "../Components/BackgoundImage/Background Page Click/ImgBackgroundFilmes.tsx";
 
 interface MovieDetailsProps {
   moviesId: number;
@@ -44,7 +44,7 @@ const Filmes: React.FC<MovieDetailsProps> = () => {
 
   return (
     <>
-      <ImgBackground moviesId={Number(moviesId)} />
+      <ImgBackgroundFilmes moviesId={Number(moviesId)} />
       <Header />
       <div className={styles.container}>
         <section className={styles.section}>

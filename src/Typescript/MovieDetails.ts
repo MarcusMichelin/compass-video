@@ -1,4 +1,5 @@
 export interface MovieDetails {
+  name: string;
   adult: boolean;
   backdrop_path: string | null;
   genre_ids?: number[];

@@ -33,7 +33,7 @@ const Home = () => {
             <img src={IconFavorito} alt="Icone Favorito" />
           </div>
         </div>
-        <div className={styles.tituloCarousel}>Coleções de Halloween</div>
+        <div className={styles.tituloCarouselFirst}>Coleções de Halloween</div>
         <div> <CarouselCollection searchTerm="halloween" /></div>
         <div className={styles.tituloCarousel}>Filmes Bem Conceituados</div>
         <div> <Carousel media="movie" category="top_rated" /></div>

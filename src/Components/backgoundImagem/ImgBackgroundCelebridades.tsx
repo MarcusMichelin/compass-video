@@ -1,5 +1,5 @@
 import styles from "../../styles/stylesPage/backgroundInicio.module.css";
-import BackgroundCelebridades from "../../assets/87d8dc385aa834171d5db634868fe408.png";
+import BackgroundCelebridades from "../../assets/celebridades.png";
 
 const ImgBackgroundCelebridades = () => {
   return (

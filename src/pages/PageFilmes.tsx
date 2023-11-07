@@ -9,16 +9,16 @@ import { useParams } from "react-router-dom";
 import CarouselSimilar from "../components/Carousel/CarouselSimilar.tsx";
 
 interface MovieDetailsProps {
-  movieId: number;
+  moviesId: number;
   apiKey: string;
 }
 
 const Filmes: React.FC<MovieDetailsProps> = () => {
   const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
-  const { movieId } = useParams<{ movieId: string }>();
+  const { moviesId } = useParams<{ moviesId: string }>();
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, {
+    fetch(`https://api.themoviedb.org/3/movie/${moviesId}?language=en-US`, {
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZWZlMzRmODc2N2Y2ZWQzMjFjNTgxZTMxOTQxNWU4OSIsInN1YiI6IjY1NDExN2RkNmNhOWEwMDBhZDcyM2EyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OLTKmbMcdBw2Q4hQDoYLglPZwqQCawWYg07IDIHbpf0",
@@ -36,7 +36,7 @@ const Filmes: React.FC<MovieDetailsProps> = () => {
       .catch((error) => {
         console.error("Erro:", error);
       });
-  }, [movieId]);
+  }, [moviesId]);
 
   if (!movieDetails) {
     return <div>Carregando...</div>;
@@ -44,7 +44,7 @@ const Filmes: React.FC<MovieDetailsProps> = () => {
 
   return (
     <>
-      <ImgBackground movieId={Number(movieId)} />
+      <ImgBackground moviesId={Number(moviesId)} />
       <Header />
       <div className={styles.container}>
         <section className={styles.section}>
@@ -74,8 +74,8 @@ const Filmes: React.FC<MovieDetailsProps> = () => {
           </div>
         </section>
       </div>
-      <p className={styles.tituloCarousel}>Similares</p>
-      <CarouselSimilar media="movie" currentMediaId={Number(movieId)} />
+      <p className={styles.tituloCarouselFirst}>Similares</p>
+      <CarouselSimilar media="movie" currentMediaId={Number(moviesId)} />
     </>
   );
 };

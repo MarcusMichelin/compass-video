@@ -2,12 +2,12 @@ import styles from "../styles/stylesPage/Home.module.css";
 import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
 import Header from "../components/Header";
-import ImgBackgroundSerie from "../components/backgoundImagem/ImgBackgroundSerie";
+import BackgroundSeriesHeader from "../Components/backgoundImagem/BackgroundSerieHeader";
 
 const Serie = () => {
   return (
     <>
-      <ImgBackgroundSerie />
+      <BackgroundSeriesHeader />
       <Header />
       <div className={styles.container}>
         <section className={styles.section}>

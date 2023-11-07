@@ -9,10 +9,10 @@ interface Movie {
 
 const ImgBackground = () => {
   const [movieDetails, setMovieDetails] = useState<Movie | null>(null);
-  const { movieId } = useParams();
+  const { moviesId } = useParams();
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, {
+    fetch(`https://api.themoviedb.org/3/movie/${moviesId}?language=en-US`, {
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZWZlMzRmODc2N2Y2ZWQzMjFjNTgxZTMxOTQxNWU4OSIsInN1YiI6IjY1NDExN2RkNmNhOWEwMDBhZDcyM2EyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OLTKmbMcdBw2Q4hQDoYLglPZwqQCawWYg07IDIHbpf0",
@@ -30,7 +30,7 @@ const ImgBackground = () => {
       .catch((error) => {
         console.error("Erro:", error);
       });
-  }, [movieId]);
+  }, [moviesId]);
 
   if (!movieDetails) {
     return <div>Carregando...</div>;

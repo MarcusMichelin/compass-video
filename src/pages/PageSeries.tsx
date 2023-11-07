@@ -2,45 +2,84 @@ import styles from "../styles/stylesPage/Home.module.css";
 import IconAdd from "../assets/icons/add.svg";
 import IconFavorito from "../assets/icons/favorito.svg";
 import Header from "../components/Header";
-import ImgBackground from "../components/backgoundImagem/ImgBackground";
-import CarouselTemporadas from "../components/Carousel/CarouselSeasons";
+import { useEffect, useState } from "react";
+import { MovieDetails } from "../Typescript/MovieDetails";
+import { useParams } from "react-router-dom";
+import CarouselSimilar from "../components/Carousel/CarouselSimilar.tsx";
+import ImgBackgroundSeries from "../components/backgoundImagem/ImgBackgroundSerie.tsx";
+import CarouselSeason from "../Components/Carousel/CarouselSeasons.tsx";
 
-const Home = () => {
+interface MovieDetailsProps {
+  seriesId: number;
+  apiKey: string;
+}
+
+const Series: React.FC<MovieDetailsProps> = () => {
+  const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
+  const { seriesId } = useParams<{ seriesId: string }>();
+
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/tv/${seriesId}?language=en-US`, {
+      headers: {
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZWZlMzRmODc2N2Y2ZWQzMjFjNTgxZTMxOTQxNWU4OSIsInN1YiI6IjY1NDExN2RkNmNhOWEwMDBhZDcyM2EyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OLTKmbMcdBw2Q4hQDoYLglPZwqQCawWYg07IDIHbpf0",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Erro ao buscar os dados");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setMovieDetails(data);
+      })
+      .catch((error) => {
+        console.error("Erro:", error);
+      });
+  }, [seriesId]);
+
+  if (!movieDetails) {
+    return <div>Carregando...</div>;
+  }
+
   return (
     <>
-      <ImgBackground />
+      <ImgBackgroundSeries seriesId={Number(seriesId)} />
       <Header />
       <div className={styles.container}>
-        <div className={styles.content}>
-          <h2>Five Nights at Freddy's</h2>
-          <p className={styles.richTextTime}>2021 • 1 h 41 min</p>
-          <p className={styles.richTextGenero}>Drama, Sci-Fi & Fantasy</p>
-          <h5>
-            Recently fired and desperate for work, a troubled young man named
-            Mike agrees to take a position as a night security guard at an
-            abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon
-            discovers that nothing at Freddy's is what it seems.
-          </h5>
-        </div>
-        <div className={styles.containerButton}>
-          <div className={styles.contentButton}>
-            <button className={styles.btnVerMais}>VER AGORA</button>
-            <button className={styles.btnInfo}>Mais Informações</button>
+        <section className={styles.section}>
+          <div className={styles.content}>
+            <h2>{movieDetails.original_title}</h2>
+            <p className={styles.richTextTime}>{movieDetails.release_date}</p>
+            <p className={styles.richTextGenero}>
+              {movieDetails.genres &&
+                movieDetails.genres.map((genre, index) => (
+                  <span key={index}>
+                    {genre.name}
+                    {index !== movieDetails.genres.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+            </p>
+            <h5>{movieDetails.overview}</h5>
           </div>
-          <div className={styles.containerIcon}>
-            <img src={IconAdd} alt="Icone Adicionar" />
-            <img src={IconFavorito} alt="Icone Favorito" />
+          <div className={styles.containerButton}>
+            <div className={styles.contentButton}>
+              <button className={styles.btnVerMais}>VER AGORA</button>
+              <button className={styles.btnInfo}>Mais Informações</button>
+            </div>
+            <div className={styles.containerIcon}>
+              <img src={IconAdd} alt="Icone Adicionar" />
+              <img src={IconFavorito} alt="Icone Favorito" />
+            </div>
           </div>
-          <div className={styles.tituloCarousel}>Temporadas</div>
-          <div>
-            {" "}
-            <CarouselTemporadas serieId={84958} />
-          </div>
-          {/* Alterar o número da serieId para o id da série que deseja ver as temporadas */}
-        </div>
+        </section>
       </div>
+      <p className={styles.tituloCarouselFirst}>Similares</p>
+      <CarouselSimilar media="tv" currentMediaId={Number(seriesId)} />
+      <CarouselSeason serieId={Number(seriesId)} />
     </>
   );
 };
 
-export default Home;
+export default Series;

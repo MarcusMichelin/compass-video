@@ -23,9 +23,13 @@ const ModalPlayer = ({ videoKey }: ModalPlayerProps) => {
         };
     }, [modalRef]);
 
+const mostrarVideo = () => {
+    setShowModal(!showModal);
+
+}
     return (
         <div>
-            <button onClick={() => setShowModal(true)}>Abrir modal</button>
+            <button onClick={() => mostrarVideo()}>Abrir modal</button>
             {showModal && (
                 <div className={styles.modal}>
                     <div ref={modalRef} className={styles.modalContent}>

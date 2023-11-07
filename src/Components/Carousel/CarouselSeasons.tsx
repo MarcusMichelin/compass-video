@@ -54,7 +54,7 @@ const CarouselSeason = ({ serieId }: Props) => {
         <SplideTrack>
           {seasons.map((season) => (
             <SplideSlide key={season.id}>
-              <a href={`/serie/${serieId}/season/${season.id}`}>
+              <a href={`/home/${serieId}/season/${season.id}`}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${season.poster_path}`}
                   alt={season.name}

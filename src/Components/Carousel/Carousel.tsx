@@ -8,7 +8,7 @@ interface Props {
   category: string;
   media: string;
 }
-interface Media {
+interface MediaInfo {
   id: number;
   poster_path: string;
   profile_path: string;
@@ -16,7 +16,7 @@ interface Media {
   release_date: string;
 }
 const Carousel = ({ category, media }: Props) => {
-  const [medias, setMedias] = useState<Media[]>([]);
+  const [medias, setMedias] = useState<MediaInfo[]>([]);
 
   useEffect(() => {
     const fetchMedias = async () => {

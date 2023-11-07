@@ -1,13 +1,13 @@
 import styles from "../../styles/stylesPage/backgroundInicio.module.css";
-import BackgroundHome from "../../assets/home.png";
+import BackgroundSeries from "../../assets/series.png";
 
-const ImgBackgroundHome = () => {
+const BackgroundSeriesHeader = () => {
   return (
     <>
       <div className={styles.container}>
         <div className={styles["gradient-overlay"]}></div>
         <img
-          src={BackgroundHome}
+          src={BackgroundSeries}
           alt="Imagem de fundo"
           width={430}
           height={967}
@@ -17,4 +17,4 @@ const ImgBackgroundHome = () => {
   );
 };
 
-export default ImgBackgroundHome;
+export default BackgroundSeriesHeader;

@@ -43,8 +43,10 @@ const Home = () => {
               <button
                 className={styles.btnVerMais}
                 onClick={handleVerAgoraClick}
+                
               >
                 VER AGORA
+                {videoKey && <ModalPlayer videoKey={videoKey} />}
               </button>
               {/* 507089 */}
               <button className={styles.btnInfo}>Mais Informações</button>
@@ -56,7 +58,7 @@ const Home = () => {
           </div>
         </section>
       </div>
-      {videoKey && <ModalPlayer videoKey={videoKey} />}
+      
       <div className={styles.tituloCarousel}>Coleções de Halloween</div>
       <div>
         {" "}

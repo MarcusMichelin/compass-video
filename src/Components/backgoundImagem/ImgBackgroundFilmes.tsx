@@ -1,5 +1,5 @@
 import styles from "../../styles/stylesPage/backgroundInicio.module.css";
-import BackgroundFilmes from "../../assets/b8d916e3895a9939140f10471d855f4f.png";
+import BackgroundFilmes from "../../assets/filmes.png";
 
 const ImgBackgroundFilme = () => {
   return (

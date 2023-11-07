@@ -16,10 +16,10 @@ interface MovieDetailsProps {
 
 const PageSeries: React.FC<MovieDetailsProps> = () => {
   const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
-  const { serieId } = useParams<{ serieId: string }>();
+  const { seriesId } = useParams<{ seriesId: string }>();
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/tv/${serieId}?language=en-US`, {
+    fetch(`https://api.themoviedb.org/3/tv/${seriesId}?language=en-US`, {
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZWZlMzRmODc2N2Y2ZWQzMjFjNTgxZTMxOTQxNWU4OSIsInN1YiI6IjY1NDExN2RkNmNhOWEwMDBhZDcyM2EyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OLTKmbMcdBw2Q4hQDoYLglPZwqQCawWYg07IDIHbpf0",
@@ -37,7 +37,7 @@ const PageSeries: React.FC<MovieDetailsProps> = () => {
       .catch((error) => {
         console.error("Erro:", error);
       });
-  }, [serieId]);
+  }, [seriesId]);
 
   if (!movieDetails) {
     return <div>Carregando...</div>;
@@ -45,12 +45,12 @@ const PageSeries: React.FC<MovieDetailsProps> = () => {
 
   return (
     <>
-      <ImgBackgroundSeries serieId={Number(serieId)} />
+      <ImgBackgroundSeries seriesId={Number(seriesId)} />
       <Header />
       <div className={styles.container}>
         <section className={styles.section}>
           <div className={styles.content}>
-            <h2>{movieDetails.original_title}</h2>
+            <h2>{movieDetails.name}</h2>
             <p className={styles.richTextTime}>{movieDetails.release_date}</p>
             <p className={styles.richTextGenero}>
               {movieDetails.genres &&
@@ -75,9 +75,10 @@ const PageSeries: React.FC<MovieDetailsProps> = () => {
           </div>
         </section>
       </div>
-      <p className={styles.tituloCarousel}>Similares</p>
-      <CarouselSimilar media="tv" currentMediaId={Number(serieId)} />
-      <CarouselSeason serieId={Number(serieId)} />
+      <p className={styles.tituloCarouselFirst}>Similares</p>
+      <CarouselSimilar media="tv" currentMediaId={Number(seriesId)} />
+      <p className={styles.tituloCarousel}>Temporadas</p>
+      <CarouselSeason serieId={Number(seriesId)} />
     </>
   );
 };

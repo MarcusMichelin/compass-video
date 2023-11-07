@@ -1,8 +1,16 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
 import styles from "../styles/stylesPage/Home.module.css";
+import IconAdd from "../assets/icons/add.svg";
+import IconFavorito from "../assets/icons/favorito.svg";
 import Header from "../components/Header";
-import ImgBackgroundSeries from "../Components/BackgoundImage/Background Page Click/ImgBackgroundSeries";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ImgBackgroundSeries from "../Components/BackgoundImage/Background Page Click/ImgBackgroundSeries.tsx";
+import axios from "axios";
+
+interface MovieDetails {
+  seasonId: number;
+  apiKey: string;
+}
 
 interface Series {
   id: number;
@@ -14,11 +22,13 @@ interface Series {
 
 const PageTemporadas = () => {
   const [episodes, setEpisodes] = useState<Series[]>([]);
+  const [movieDetails, setMovieDetails] = useState<MovieDetails | null>(null);
+  const { seasonId } = useParams<{ seasonId: string }>();
 
   useEffect(() => {
     const fetchEpisodes = async () => {
       const response = await axios.get(
-        "https://api.themoviedb.org/3/tv/84958/season/1?api_key=8efe34f8767f6ed321c581e319415e89&language=en-US"
+        `https://api.themoviedb.org/3/tv/${seasonId}/season/1?api_key=8efe34f8767f6ed321c581e319415e89&language=en-US`
       );
       setEpisodes(response.data.episodes);
     };
@@ -27,26 +37,37 @@ const PageTemporadas = () => {
 
   return (
     <>
-      <ImgBackgroundSeries />
+      <ImgBackgroundSeries seasonId={Number(seasonId)} />
       <Header />
       <div className={styles.container}>
-        <div className={styles.content}>
-          <h2>Five Nights at Freddy's</h2>
-          <p className={styles.richTextTime}>2021 • 1 h 41 min</p>
-          <p className={styles.richTextGenero}>Drama, Sci-Fi & Fantasy</p>
-          <h5>
-            Recently fired and desperate for work, a troubled young man named
-            Mike agrees to take a position as a night security guard at an
-            abandoned theme restaurant: Freddy Fazbear's Pizzeria. But he soon
-            discovers that nothing at Freddy's is what it seems.
-          </h5>
-        </div>
-        <div className={styles.containerButton}>
-          <div className={styles.contentButton}>
-            <button className={styles.btnVerMais}>VER AGORA</button>
-            <button className={styles.btnInfo}>Mais Informações</button>
+        <section className={styles.section}>
+          <div className={styles.content}>
+            <h2>{movieDetails.name}</h2>
+            <p className={styles.richTextTime}>{movieDetails.release_date}</p>
+            <p className={styles.richTextGenero}>
+              {movieDetails.genres &&
+                movieDetails.genres.map((genre, index) => (
+                  <span key={index}>
+                    {genre.name}
+                    {index !== movieDetails.genres.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+            </p>
+            <h5>{movieDetails.overview}</h5>
           </div>
-        </div>
+          <div className={styles.containerButton}>
+            <div className={styles.contentButton}>
+              <button className={styles.btnVerMais}>VER AGORA</button>
+              <button className={styles.btnInfo}>Mais Informações</button>
+            </div>
+            <div className={styles.containerIcon}>
+              <img src={IconAdd} alt="Icone Adicionar" />
+              <img src={IconFavorito} alt="Icone Favorito" />
+            </div>
+          </div>
+        </section>
+      </div>
+      <div className={styles.container}>
         <div className={styles.tituloCarousel}>Episódios</div>
         <div className={styles.episodes}>
           {episodes.map((episode) => (

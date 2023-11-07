@@ -7,6 +7,7 @@ import styles from "../../styles/Slider.module.css";
 interface Props {
   media: string;
   currentMediaId: number;
+  category: string;
 }
 
 interface Media {
@@ -15,6 +16,7 @@ interface Media {
   profile_path: string;
   title: string;
   release_date: string;
+  media: Props["media"];
 }
 
 const CarouselSimilar = ({ media, currentMediaId }: Props) => {
@@ -25,10 +27,14 @@ const CarouselSimilar = ({ media, currentMediaId }: Props) => {
       const response = await axios.get(
         `https://api.themoviedb.org/3/${media}/${currentMediaId}/similar?api_key=8efe34f8767f6ed321c581e319415e89&language=en-US&page=1`
       );
-      setSimilarMedias(response.data.results);
+      const mediasWithMediaProp = response.data.results.map((mediaInfo: MediaInfo) => ({
+        ...mediaInfo,
+        media,
+      }));
+      setSimilarMedias(mediasWithMediaProp);
     };
     fetchSimilarMedias();
-  }, [media, currentMediaId]);
+  }, [currentMediaId, media]);
 
   return (
     <div className={styles.containerSlider}>
@@ -56,7 +62,7 @@ const CarouselSimilar = ({ media, currentMediaId }: Props) => {
         <SplideTrack>
           {similarMedias.map((media) => (
             <SplideSlide key={media.id}>
-              <a href={`/home/${media.id}`}>
+              <a href={`/home/${media.media}/${media.id}`}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${
                     media.poster_path || media.profile_path

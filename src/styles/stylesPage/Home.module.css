@@ -38,7 +38,7 @@
   background: #1a1d29;
 }
 
-/* .tituloCarouselFirst {
+.tituloCarouselFirst {
   color: #f9f9f9;
   font-size: 20px;
   font-weight: 700;
@@ -48,7 +48,8 @@
   z-index: 1;
   position: relative;
   background: transparent;
-} */
+}
+
 
 .tituloCarousel {
   color: #f9f9f9;
@@ -219,6 +220,14 @@
     display: flex;
     align-items: center;
     width: initial;
+  }
+  
+}
+
+@media (max-width: 500px) {
+  .tituloCarouselFirst{ 
+    background-color: #1a1d29;
+
   }
 }
 

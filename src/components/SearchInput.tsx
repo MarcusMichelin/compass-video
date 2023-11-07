@@ -35,17 +35,8 @@ const SearchInput: React.FC<SearchInputProps> = ({
   const [searchResult, setSearchResult] = useState<SearchResult | null>(null);
 
   const handleInputClick = () => {
-    handleSearchRedirect();
     onClick();
     setShowFilterState(true);
-  };
-
-  const handleSearchRedirect = () => {
-    if (location.pathname !== "/buscar") {
-      window.location.href = "/buscar";
-    } else {
-      console.log("Você já está na página de busca.");
-    }
   };
 
   const handleInputChange = async (

@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 interface Serie {
   title: string | undefined;
   backdrop_path: string;
+  homepage: string;
+  poster_path: string;
 }
 
 const ImgBackgroundSeries = () => {

@@ -39,6 +39,9 @@ const CarouselCredit = ({ personId }: Props) => {
           perMove: 1,
           gap: "1rem",
           autoplay: true,
+          pagination: {
+            perPage: 5,
+          },
           breakpoints: {
             430: {
               perPage: 2,

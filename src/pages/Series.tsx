@@ -37,7 +37,7 @@ const Serie = () => {
 
         </section>
       </div>
-      <div className={styles.tituloCarouselFirst}>Séries Bem Conceituadas</div>
+      <div className={styles.tituloCarousel}>Séries Bem Conceituadas</div>
       <div>
         {" "}
         <Carousel media="tv" category="top_rated" />{" "}

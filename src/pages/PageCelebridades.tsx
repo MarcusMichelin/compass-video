@@ -5,12 +5,15 @@ import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import { MovieDetails } from "../Typescript/MovieDetails";
 import { useParams } from "react-router-dom";
-import CarouselSimilar from "../components/Carousel/CarouselSimilar.tsx";
+import CarouselSimilar from "../Components/Carousel/CarouselSimilar.tsx";
 import ImgBackgroundCelebridades from "../Components/BackgoundImage/Background Page Click/ImgBackgroundCelebridades.tsx";
+import CarouselCredit from "../Components/Carousel/CarouselCredit.tsx";
 
 interface MovieDetailsProps {
   moviesId: number;
   apiKey: string;
+  biography: string;
+  birthday: string;
 }
 
 const Person: React.FC<MovieDetailsProps> = () => {
@@ -18,7 +21,7 @@ const Person: React.FC<MovieDetailsProps> = () => {
   const { personId } = useParams<{ personId: string }>();
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${personId}?language=en-US`, {
+    fetch(`https://api.themoviedb.org/3/person/${personId}?language=en-US`, {
       headers: {
         Authorization:
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4ZWZlMzRmODc2N2Y2ZWQzMjFjNTgxZTMxOTQxNWU4OSIsInN1YiI6IjY1NDExN2RkNmNhOWEwMDBhZDcyM2EyNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OLTKmbMcdBw2Q4hQDoYLglPZwqQCawWYg07IDIHbpf0",
@@ -49,8 +52,8 @@ const Person: React.FC<MovieDetailsProps> = () => {
       <div className={styles.container}>
         <section className={styles.section}>
           <div className={styles.content}>
-            <h2>{movieDetails.original_title}</h2>
-            <p className={styles.richTextTime}>{movieDetails.release_date}</p>
+            <h2>{movieDetails.name}</h2>
+            <p className={styles.richTextTime}>{movieDetails.birthday}</p>
             <p className={styles.richTextGenero}>
               {movieDetails.genres &&
                 movieDetails.genres.map((genre, index) => (
@@ -60,13 +63,9 @@ const Person: React.FC<MovieDetailsProps> = () => {
                   </span>
                 ))}
             </p>
-            <h5>{movieDetails.overview}</h5>
+            <h5>{movieDetails.biography}</h5>
           </div>
           <div className={styles.containerButton}>
-            <div className={styles.contentButton}>
-              <button className={styles.btnVerMais}>VER AGORA</button>
-              <button className={styles.btnInfo}>Mais Informações</button>
-            </div>
             <div className={styles.containerIcon}>
               <img src={IconAdd} alt="Icone Adicionar" />
               <img src={IconFavorito} alt="Icone Favorito" />
@@ -74,8 +73,8 @@ const Person: React.FC<MovieDetailsProps> = () => {
           </div>
         </section>
       </div>
-      <p className={styles.tituloCarousel}>Similares</p>
-      <CarouselSimilar media="movie" currentMediaId={Number(moviesId)} />
+      <p className={styles.tituloCarousel}>Faz Parte do Elenco</p>
+      <CarouselCredit personId={Number(personId)} />
     </>
   );
 };

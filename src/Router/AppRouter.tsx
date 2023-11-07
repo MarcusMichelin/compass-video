@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PageSeries from "../pages/Series";
-import PageCelebridades from "../pages/Celebridades";
+import PageSeries from "../pages/PageSeries";
+import PageCelebridades from "../pages/PageCelebridades";
 import PageFilmes from "../pages/PageFilmes";
 import Filmes from "../pages/Filmes";
 import Home from "../pages/Home";
@@ -28,16 +28,16 @@ const AppRouter = () => {
         <Route path="/home/person" element={<Celebridades />} />
       </Routes>
       <Routes>
-        <Route path="/home/movie/:moviesId" element={<PageFilmes movieId={0} apiKey={""} />} />
+        <Route path="/home/movie/:moviesId" element={<PageFilmes moviesId={0} apiKey={""} />} />
       </Routes>
       <Routes>
-        <Route path="/home/tv/:seriesId" element={<PageSeries serieId={0} apiKey={""}/>} />
+        <Route path="/home/tv/:seriesId" element={<PageSeries seriesId={0} apiKey={""}/>} />
       </Routes>
       <Routes>
         <Route path="/home/person/:personId" element={<PageCelebridades personId={0} apiKey={""} />} />
       </Routes>
       <Routes>
-        <Route path="/home/:seriesId/season/seasonId" element={<PageTemporadas seasonId={0} apiKey={""} />} />
+        <Route path="/home/:seriesId/season/:seasonId" element={<PageTemporadas seasonId={0} apiKey={""} />} />
       </Routes>
     </BrowserRouter>
   );

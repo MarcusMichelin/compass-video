@@ -8,6 +8,7 @@ import IniciarSessao from "../Components/Login/IniciarSessao";
 import Series from "../pages/Series";
 import Celebridades from "../pages/Celebridades";
 import PageTemporadas from "../pages/PageTemporadas";
+import Buscar from "../pages/Buscar/Buscar";
 
 const AppRouter = () => {
   return (

@@ -73,7 +73,7 @@ const Person: React.FC<MovieDetailsProps> = () => {
           </div>
         </section>
       </div>
-      <p className={styles.tituloCarousel}>Faz Parte do Elenco</p>
+      <p className={styles.tituloCarouselFirst}>Faz Parte do Elenco</p>
       <CarouselCredit personId={Number(personId)} />
     </>
   );

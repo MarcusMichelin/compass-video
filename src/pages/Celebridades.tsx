@@ -33,8 +33,8 @@ const Celebridades = () => {
           </div>
         </section>
       </div>
-      <div className={styles.tituloCarousel}>
-        Celebridades Bem Conceituadas
+      <div className={styles.tituloCarouselFirst}>
+        Celebridades Populares
       </div>
       <div>
         {" "}

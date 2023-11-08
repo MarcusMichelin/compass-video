@@ -50,7 +50,7 @@ const Carousel = ({ category, media }: Props) => {
             },
             1512: {
               perPage: 6,
-              gap: "1.00rem",
+              gap: "1.5rem",
             },
           },
         }}

@@ -20,7 +20,7 @@ function IniciarSessao() {
       },
     );
     setRequestToken(response.data.request_token);
-    window.location.href = `https://www.themoviedb.org/authenticate/${response.data.request_token}?redirect_to=http://localhost:5176/home/`;
+    window.location.href = `https://www.themoviedb.org/authenticate/${response.data.request_token}?redirect_to=http://localhost:5173/home/`;
   };
 
   const obterSessionId = async () => {

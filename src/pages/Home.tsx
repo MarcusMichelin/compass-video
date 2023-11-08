@@ -59,10 +59,10 @@ const Home = () => {
         </section>
       </div>
       
-      <div className={styles.tituloCarousel}>Coleções de Halloween</div>
+      <div className={styles.tituloCarouselFirst}>Coleções de Halloween</div>
       <div>
         {" "}
-        <CarouselCollection searchTerm="horror" />
+        <CarouselCollection searchTerm="halloween" />
       </div>
       <div className={styles.tituloCarousel}>Filmes Bem Conceituados</div>
       <div>
@@ -75,7 +75,7 @@ const Home = () => {
         <Carousel media="tv" category="top_rated" />{" "}
       </div>
       <div className={styles.tituloCarousel}>
-        Celebridades Bem Conceituadas
+        Celebridades Populares
       </div>
       <div>
         {" "}
